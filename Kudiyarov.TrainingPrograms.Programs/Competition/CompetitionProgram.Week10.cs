@@ -16,8 +16,8 @@ public sealed partial class CompetitionProgram
 
         var ex1 = new Snatch(SnatchFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.500, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.600, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.650, Repeats = 2, Sets = 1 },
@@ -31,59 +31,59 @@ public sealed partial class CompetitionProgram
                 new SingleRepeat { Percent = 0.950, Repeats = 1, Sets = 1 },
                 new SingleRepeat { Percent = 0.975, Repeats = 1, Sets = 1 },
                 new SingleRepeat { Percent = 1.000, Repeats = 1, Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(SnatchPullFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.80, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.90, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 1.00, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 1.05, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex3 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.80, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.85, Repeats = 2, Sets = 3 }
-            }
+            ]
         };
 
         var ex4 = new Accessory(PressInSitPosition)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Intensity = Intensity.Medium, Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var ex5 = new Accessory(KneesToElbows)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 12, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4),
                 new(ex5)
-            }
+            ]
         };
 
         return session;
@@ -95,8 +95,8 @@ public sealed partial class CompetitionProgram
 
         var ex1 = new MultiCleanAndJerk(Clean, Jerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.500, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.600, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.650, Repeats = Array(2, 2), Sets = 1 },
@@ -106,27 +106,27 @@ public sealed partial class CompetitionProgram
                 new MultiRepeat { Percent = 0.800, Repeats = Array(2, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.850, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.875, Repeats = Array(1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(CleanPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.8, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.9, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 1.0, Repeats = 2, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(warmup),
                 new(ex1),
                 new(ex2)
-            }
+            ]
         };
 
         return session;
@@ -138,21 +138,21 @@ public sealed partial class CompetitionProgram
 
         var ex1 = new Snatch(ExerciseType.Snatch)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.65, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.75, Repeats = 1, Sets = 2 },
                 new SingleRepeat { Percent = 0.80, Repeats = 1, Sets = 4 }
-            }
+            ]
         };
 
         var ex2 = new MultiSnatch(SnatchPushPress, OverheadSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 3, Sets = 1 },
@@ -162,36 +162,36 @@ public sealed partial class CompetitionProgram
                 new SingleRepeat { Percent = 0.90, Repeats = 1, Sets = 1 },
                 new SingleRepeat { Percent = 0.95, Repeats = 1, Sets = 1 },
                 new SingleRepeat { Percent = 1.00, Repeats = 1, Sets = 1 }
-            }
+            ]
         };
 
         var ex3 = new Snatch(SnatchPushPress)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 1.05, Repeats = 1 },
                 new SingleRepeat { Percent = 1.10, Repeats = 1 }
-            }
+            ]
         };
 
         var ex4 = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4)
-            }
+            ]
         };
 
         return session;
@@ -201,19 +201,19 @@ public sealed partial class CompetitionProgram
     {
         var ex1 = new MultiSnatch(PowerSnatch, ExerciseType.Snatch)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(2, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.65, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(1, 1), Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new MultiCleanAndJerk(Clean, Jerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.500, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.600, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.650, Repeats = Array(2, 2), Sets = 1 },
@@ -225,68 +225,68 @@ public sealed partial class CompetitionProgram
                 new MultiRepeat { Percent = 0.950, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.975, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 1.000, Repeats = Array(1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex3 = new CleanAndJerk(CleanPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.80, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.90, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 1.00, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 1.05, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex4 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.500, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.700, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.800, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.850, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.900, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.925, Repeats = 2, Sets = 1 }
-            }
+            ]
         };
 
         var ex5 = new Accessory(PressWithRubberBand)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Intensity = Intensity.Light, Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var ex6A = new Accessory(Plank)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new StaticRepeat { Duration = TimeSpan.FromSeconds(60) }
-            }
+            ]
         };
 
         var ex6B = new Accessory(Crunch)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4),
                 new(ex5),
                 new(3, ex6A, ex6B)
-            }
+            ]
         };
 
         return session;
@@ -296,10 +296,10 @@ public sealed partial class CompetitionProgram
     {
         var ex1 = new CleanAndJerk(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 5, Sets = 3 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(ExerciseType.Snatch)
@@ -314,12 +314,12 @@ public sealed partial class CompetitionProgram
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
