@@ -76,32 +76,30 @@ public class TrainingProgramLogic : ITrainingProgramLogic
             return;
         }
         
-        var firstRepeat = exercise.Repeats[0];
+        var lastRepeat = exercise.Repeats[^1];
 
-        if (firstRepeat is not { Percent: not null })
+        if (lastRepeat is not SingleRepeat singleRepeat || lastRepeat.Percent == null)
         {
             return;
         }
         
-        var workPercent = firstRepeat.Percent;
-        var warmupPercent = 0.5;
-        var newList = new List<Repeat>();
+        var warmupPercent = singleRepeat.Percent / 2;
+        var workPercent = singleRepeat.Percent;
+        var sets = singleRepeat.Sets;
+        var step = (workPercent - warmupPercent) / (sets - 1);
 
-        while (warmupPercent.LessThan(workPercent.Value))
+        var cnt = 0;
+        var newRepeats = new Repeat[sets];
+        
+        foreach (var repeat in newRepeats)
         {
-            Repeat repeat = firstRepeat switch
-            {
-                SingleRepeat single => new SingleRepeat {Percent = warmupPercent, Repeats = single.Repeats},
-                MultiRepeat multi => new MultiRepeat {Percent = warmupPercent, Repeats = multi.Repeats},
-                StaticRepeat staticR => new StaticRepeat {Percent = warmupPercent, Duration = staticR.Duration}
-            };
-                    
-            newList.Add(repeat);
-            warmupPercent += 0.1;
+            var newPercent = warmupPercent + step * cnt;
+            var newRepeat = singleRepeat with { Percent = newPercent, Sets = 1 };
+            newRepeats[cnt] = newRepeat;
+            cnt++;
         }
         
-        newList.AddRange(exercise.Repeats);
-        exercise.Repeats = newList;
+        exercise.Repeats = newRepeats;
     }
 
     private static void CalculatePercentage(BaseExercise exercise, Repeat repeat)
