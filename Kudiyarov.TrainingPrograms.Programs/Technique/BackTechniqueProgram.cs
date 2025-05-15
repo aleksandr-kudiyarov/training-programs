@@ -10,12 +10,12 @@ public abstract class BackTechniqueProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = hyperextension } }
+            Repeats = [new SingleRepeat { Repeats = hyperextension }]
         };
 
         var b = new Accessory(Abs)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = abs } }
+            Repeats = [new SingleRepeat { Repeats = abs }]
         };
 
         var warmup = new BaseExercise[]
@@ -30,17 +30,17 @@ public abstract class BackTechniqueProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = hyperextension } }
+            Repeats = [new SingleRepeat { Repeats = hyperextension }]
         };
 
         var b = new Accessory(Abs)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = abs } }
+            Repeats = [new SingleRepeat { Repeats = abs }]
         };
 
         var c = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = boxJump } }
+            Repeats = [new SingleRepeat { Repeats = boxJump }]
         };
 
         var warmup = new BaseExercise[]
@@ -55,12 +55,12 @@ public abstract class BackTechniqueProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = reverseHyperextension } }
+            Repeats = [new SingleRepeat { Repeats = reverseHyperextension }]
         };
 
         var b = new Accessory(Abs)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = abs } }
+            Repeats = [new SingleRepeat { Repeats = abs }]
         };
 
         var warmup = new BaseExercise[]
@@ -75,17 +75,17 @@ public abstract class BackTechniqueProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = reverseHyperextension } }
+            Repeats = [new SingleRepeat { Repeats = reverseHyperextension }]
         };
 
         var b = new Accessory(Abs)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = abs } }
+            Repeats = [new SingleRepeat { Repeats = abs }]
         };
 
         var c = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = boxJump } }
+            Repeats = [new SingleRepeat { Repeats = boxJump }]
         };
 
         var warmup = new BaseExercise[]
@@ -100,12 +100,12 @@ public abstract class BackTechniqueProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = reverseHyperextension } }
+            Repeats = [new SingleRepeat { Repeats = reverseHyperextension }]
         };
 
         var b = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = boxJump } }
+            Repeats = [new SingleRepeat { Repeats = boxJump }]
         };
 
         var warmup = new BaseExercise[]
@@ -120,17 +120,17 @@ public abstract class BackTechniqueProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = hyperextension } }
+            Repeats = [new SingleRepeat { Repeats = hyperextension }]
         };
 
         var b = new Accessory(Abs)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = abs } }
+            Repeats = [new SingleRepeat { Repeats = abs }]
         };
 
         var c = new Accessory(GakkSquat)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = gakkSquat } }
+            Repeats = [new SingleRepeat { Repeats = gakkSquat }]
         };
 
         var warmup = new BaseExercise[]
@@ -145,17 +145,17 @@ public abstract class BackTechniqueProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = reverseHyperextension } }
+            Repeats = [new SingleRepeat { Repeats = reverseHyperextension }]
         };
 
         var b = new Accessory(Abs)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = abs } }
+            Repeats = [new SingleRepeat { Repeats = abs }]
         };
 
         var c = new Accessory(GakkSquat)
         {
-            Repeats = new Repeat[] { new SingleRepeat { Repeats = gakkSquat } }
+            Repeats = [new SingleRepeat { Repeats = gakkSquat }]
         };
 
         var warmup = new BaseExercise[]

@@ -40,18 +40,18 @@ public sealed partial class CompetitionProgram : TrainingProgram
     {
         var ex1 = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15, Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new MultiSnatch(SnatchPushPress, SnatchBalance, OverheadSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.3, Repeats = Array(4, 4, 4), Sets = 3 }
-            }
+            ]
         };
 
         var result = new BaseExercise[] { ex1, ex2 };
@@ -62,18 +62,18 @@ public sealed partial class CompetitionProgram : TrainingProgram
     {
         var ex1 = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15, Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(SnatchPullFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.3, Repeats = 6, Sets = 4 }
-            }
+            ]
         };
 
         var result = new BaseExercise[] { ex1, ex2 };
@@ -84,18 +84,18 @@ public sealed partial class CompetitionProgram : TrainingProgram
     {
         var ex1 = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15, Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(SnatchOnPlates)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.3, Repeats = 4, Sets = 4 }
-            }
+            ]
         };
 
         var result = new BaseExercise[] { ex1, ex2 };
@@ -106,18 +106,18 @@ public sealed partial class CompetitionProgram : TrainingProgram
     {
         var ex1 = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15, Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.3, Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var result = new BaseExercise[] { ex1, ex2 };
@@ -128,18 +128,18 @@ public sealed partial class CompetitionProgram : TrainingProgram
     {
         var ex1 = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15, Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(CleanOnPlates)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.3, Repeats = 4, Sets = 4 }
-            }
+            ]
         };
 
         var result = new BaseExercise[] { ex1, ex2 };
@@ -150,18 +150,18 @@ public sealed partial class CompetitionProgram : TrainingProgram
     {
         var ex1 = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15, Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new MultiCleanAndJerk(MuscleClean, FrontSquat, Press)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.3, Repeats = Array(4, 4, 4), Sets = 3 }
-            }
+            ]
         };
 
         var result = new BaseExercise[] { ex1, ex2 };

@@ -31,26 +31,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6 }
-            }
+            ]
         };
 
         var c = new MultiSnatch(MuscleSnatch, OverheadSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(6, 6) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -60,45 +60,45 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(PowerSnatch, SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.5, Repeats = Array(3, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.6, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(2, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(1, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(2, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(SnatchPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.6, Repeats = 4, Sets = 2 },
                 new SingleRepeat { Percent = 0.7, Repeats = 3, Sets = 3 }
-            }
+            ]
         };
 
         var ex3 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.75, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -108,26 +108,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new Accessory(GakkSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15 }
-            }
+            ]
         };
 
         var c = new CleanAndJerk(HipCleanBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Pvc, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -137,41 +137,41 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiCleanAndJerk(CleanFromBlocks, FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.5, Repeats = Array(3, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.6, Repeats = Array(3, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(2, 2), Sets = 3 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(CleanPullFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.7, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.8, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.9, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex3 = new Accessory(PressWithRubberBand)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Intensity = Intensity.Light, Repeats = 5, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -181,26 +181,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new Snatch(SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var c = new Snatch(SnatchOnPlates)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -210,55 +210,55 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(ExerciseType.Snatch, HangSnatchAboveKnees)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(1, 3), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(1, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.75, Repeats = Array(1, 1), Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(DeficitSnatchPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.6, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.8, Repeats = 3, Sets = 2 }
-            }
+            ]
         };
 
         var ex3 = new CleanAndJerk(FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.6, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.8, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.9, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex4 = new Accessory(DeathJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 5, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4)
-            }
+            ]
         };
 
         return session;
@@ -268,26 +268,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(ElbowsRotation)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8 }
-            }
+            ]
         };
 
         var c = new MultiCleanAndJerk(MuscleClean, Press)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(6, 6) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -297,45 +297,45 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new CleanAndJerk(PowerClean)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.6, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.7, Repeats = 2, Sets = 3 }
-            }
+            ]
         };
 
         var ex2 = new MultiCleanAndJerk(FrontSquat, Jerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(2, 3), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(1, 3), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(1, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.75, Repeats = Array(1, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.80, Repeats = Array(1, 2), Sets = 1 }
-            }
+            ]
         };
 
         var ex3 = new BackSquat(BackSquatPause)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.6, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 2, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -345,26 +345,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new Accessory(GakkSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15 }
-            }
+            ]
         };
 
         var c = new Snatch(HipSnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Pvc, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -374,28 +374,28 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(HipSnatch, OverheadSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.4, Repeats = Array(3, 2), Sets = 10 }
-            }
+            ]
         };
 
         var ex2 = new Accessory(BarbellSquatJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 5, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2)
-            }
+            ]
         };
 
         return session;
@@ -405,26 +405,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var c = new MultiSnatch(MuscleSnatch, OverheadSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(6, 6) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -434,45 +434,45 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(HipPowerSnatch, SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.5, Repeats = Array(3, 3), Sets = 2 },
                 new MultiRepeat { Percent = 0.6, Repeats = Array(3, 2), Sets = 3 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(2, 1), Sets = 3 }
-            }
+            ]
         };
 
         var ex2 = new MultiSnatch(SnatchPullTillKnee, SnatchPullTillPower, SnatchPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.6, Repeats = Array(1, 1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(1, 1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.8, Repeats = Array(1, 1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.9, Repeats = Array(1, 1, 1), Sets = 2 }
-            }
+            ]
         };
 
         var ex3 = new CleanAndJerk(FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.6, Repeats = 4, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 4, Sets = 1 },
                 new SingleRepeat { Percent = 0.8, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.9, Repeats = 3, Sets = 1 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -482,26 +482,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new Accessory(GakkSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15 }
-            }
+            ]
         };
 
         var c = new CleanAndJerk(HipCleanBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Pvc, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -511,40 +511,40 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiCleanAndJerk(PowerClean, HangPowerClean)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.5, Repeats = Array(1, 3), Sets = 2 },
                 new MultiRepeat { Percent = 0.6, Repeats = Array(1, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(1, 1), Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(DeficitCleanPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.7, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.8, Repeats = 3, Sets = 3 }
-            }
+            ]
         };
 
         var ex3 = new Accessory(ChickenJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -554,26 +554,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new Snatch(SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var c = new Snatch(SnatchOnPlates)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -583,55 +583,55 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new Snatch(SnatchFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.75, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.80, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new MultiCleanAndJerk(PauseJerk, Jerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.5, Repeats = Array(2, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.6, Repeats = Array(2, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(1, 1), Sets = 3 }
-            }
+            ]
         };
 
         var ex3 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3 },
                 new SingleRepeat { Percent = 0.6, Repeats = 3 },
                 new SingleRepeat { Percent = 0.7, Repeats = 3 },
                 new SingleRepeat { Percent = 0.8, Repeats = 3 }
-            }
+            ]
         };
 
         var ex4 = new Accessory(BarbellSquatJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4)
-            }
+            ]
         };
 
         return session;
@@ -641,26 +641,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(ElbowsRotation)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8 }
-            }
+            ]
         };
 
         var c = new MultiCleanAndJerk(MuscleClean, FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(6, 6) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -670,57 +670,57 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new CleanAndJerk(CleanFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.75, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.80, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(CleanPullFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.80, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.90, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 1.00, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 1.05, Repeats = 1, Sets = 1 }
-            }
+            ]
         };
 
         var ex3 = new CleanAndJerk(FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.6, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.8, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.9, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 1.0, Repeats = 2, Sets = 1 }
-            }
+            ]
         };
 
         var ex4 = new Accessory(DeathJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4)
-            }
+            ]
         };
 
         return session;
@@ -730,18 +730,18 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(WallSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15 }
-            }
+            ]
         };
 
         var b = new Accessory(SotsPress)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -751,36 +751,36 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new CleanAndJerk(Jerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 10 }
-            }
+            ]
         };
 
         var ex2A = new Accessory(HalfSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new StaticRepeat { Duration = TimeSpan.FromSeconds(20) }
-            }
+            ]
         };
 
         var ex2B = new Accessory(KoreanJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(2, ex2A, ex2B)
-            }
+            ]
         };
 
         return session;
@@ -790,26 +790,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var c = new MultiSnatch(HipSnatchBalance, SotsPress)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Pvc, Repeats = Array(6, 6) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -819,46 +819,46 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(PowerSnatch, ExerciseType.Snatch, SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(1, 2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(2, 1, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(2, 1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.75, Repeats = Array(1, 1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.80, Repeats = Array(1, 1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(DeficitSnatchPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.8, Repeats = 2, Sets = 3 },
                 new SingleRepeat { Percent = 0.9, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex3 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.80, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.85, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -868,26 +868,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(DeathJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6 }
-            }
+            ]
         };
 
         var c = new CleanAndJerk(HipCleanBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Pvc, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -897,51 +897,51 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiCleanAndJerk(Clean, HangCleanBelowKnee)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(1, 3), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(1, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.75, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.80, Repeats = Array(1, 1), Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new MultiCleanAndJerk(PushPress, Jerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.5, Repeats = Array(1, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.6, Repeats = Array(1, 2), Sets = 3 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(1, 1), Sets = 2 }
-            }
+            ]
         };
 
         var ex3A = new Accessory(HalfSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new StaticRepeat { Duration = TimeSpan.FromSeconds(30) }
-            }
+            ]
         };
 
         var ex3B = new Accessory(KoreanJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 12 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(2, ex3A, ex3B)
-            }
+            ]
         };
 
         return session;
@@ -951,26 +951,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var c = new CleanAndJerk(SnatchOnPlates)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -980,15 +980,15 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(HangSnatchAboveKnees, HangSnatchBelowKnees)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(2, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(1, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.75, Repeats = Array(1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.80, Repeats = Array(1, 1), Sets = 2 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(SnatchPullFromBlocks)
@@ -998,35 +998,35 @@ public class SpeedProgram : TrainingProgram
 
         var ex3 = new CleanAndJerk(FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.65, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.80, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.90, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.95, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 1.00, Repeats = 2, Sets = 1 }
-            }
+            ]
         };
 
         var ex4 = new Accessory(DeathJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4)
-            }
+            ]
         };
 
         return session;
@@ -1036,26 +1036,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(ElbowsRotation)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8 }
-            }
+            ]
         };
 
         var c = new MultiCleanAndJerk(MuscleClean, FrontSquat, PressInSitPosition)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(4, 4, 4) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1065,8 +1065,8 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiCleanAndJerk(PowerClean, Jerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(2, 1), Sets = 1 },
@@ -1075,48 +1075,48 @@ public class SpeedProgram : TrainingProgram
                 new MultiRepeat { Percent = 0.70, Repeats = Array(1, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.75, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.80, Repeats = Array(1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(CleanPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.65, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.80, Repeats = 3, Sets = 3 },
                 new SingleRepeat { Percent = 0.90, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex3 = new BackSquat(BackSquatPause)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.6, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 3, Sets = 3 }
-            }
+            ]
         };
 
         var ex4 = new Accessory(BarbellSquatJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4)
-            }
+            ]
         };
 
         return session;
@@ -1126,26 +1126,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new Accessory(SotsPress)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6 }
-            }
+            ]
         };
 
         var c = new Accessory(ElbowsRotation)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1155,37 +1155,37 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new CleanAndJerk(Clean)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 10 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(GoodMorningSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.4, Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var ex3 = new Accessory(ChickenJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -1195,26 +1195,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var c = new MultiSnatch(MuscleSquatSnatch, SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Pvc, Repeats = Array(6, 6) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1224,30 +1224,30 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(ExerciseType.Snatch, PowerSnatch, SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(2, 1, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(2, 1, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(1, 1, 1), Sets = 3 },
                 new MultiRepeat { Percent = 0.75, Repeats = Array(1, 1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(SnatchPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.80, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.90, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 1.00, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 1.05, Repeats = 1, Sets = 2 }
-            }
+            ]
         };
 
         var ex3 = new CleanAndJerk(FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 3, Sets = 1 },
@@ -1256,18 +1256,18 @@ public class SpeedProgram : TrainingProgram
                 new SingleRepeat { Percent = 0.95, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 1.00, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 1.05, Repeats = 2, Sets = 1 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -1277,34 +1277,34 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new Accessory(GakkSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15 }
-            }
+            ]
         };
 
         var c = new Accessory(ElbowsRotation)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 10 }
-            }
+            ]
         };
 
         var d = new Accessory(HipCleanBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1314,33 +1314,33 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new CleanAndJerk(CleanFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.6, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 2, Sets = 3 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(CleanPullFromBlocks)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.8, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.9, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 1.0, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 1.1, Repeats = 1, Sets = 1 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2)
-            }
+            ]
         };
 
         return session;
@@ -1350,26 +1350,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new Accessory(HipSnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var c = new CleanAndJerk(SnatchOnPlates)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1379,57 +1379,57 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new Snatch(DeficitPowerSnatch)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.75, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.80, Repeats = 1, Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(PauseJerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.75, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var ex3 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.80, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.85, Repeats = 2, Sets = 1 }
-            }
+            ]
         };
 
         var ex4 = new Accessory(BarbellSquatJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3),
                 new(ex4)
-            }
+            ]
         };
 
         return session;
@@ -1439,26 +1439,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorningSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(ElbowsRotation)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8 }
-            }
+            ]
         };
 
         var c = new MultiCleanAndJerk(MuscleClean, FrontSquat, PressInSitPosition)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(4, 4, 4) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1468,45 +1468,45 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiCleanAndJerk(PowerClean, HangPowerClean)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(1, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(1, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.75, Repeats = Array(1, 2), Sets = 3 }
-            }
+            ]
         };
 
         var ex2 = new MultiCleanAndJerk(FrontSquat, PushPress)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.500, Repeats = Array(2, 3), Sets = 2 },
                 new MultiRepeat { Percent = 0.600, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.700, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.725, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.750, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.800, Repeats = Array(1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex3 = new Accessory(DeathJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -1516,26 +1516,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(GakkSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 15 }
-            }
+            ]
         };
 
         var c = new MultiSnatch(MuscleSnatch, SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(6, 6) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1545,36 +1545,36 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new Snatch(ExerciseType.Snatch)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 10 }
-            }
+            ]
         };
 
         var ex2A = new Accessory(HalfSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new StaticRepeat { Duration = TimeSpan.FromSeconds(30) }
-            }
+            ]
         };
 
         var ex2B = new Accessory(KoreanJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 12 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(3, ex2A, ex2B)
-            }
+            ]
         };
 
         return session;
@@ -1584,26 +1584,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorningSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(BoxJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 4 }
-            }
+            ]
         };
 
         var c = new MultiSnatch(MuscleSquatSnatch, SotsPress)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(6, 6) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1613,8 +1613,8 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(ExerciseType.Snatch, SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(2, 1), Sets = 2 },
@@ -1622,42 +1622,42 @@ public class SpeedProgram : TrainingProgram
                 new MultiRepeat { Percent = 0.80, Repeats = Array(1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.85, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.90, Repeats = Array(1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new Snatch(SnatchPull)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.80, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.90, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 1.00, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 1.05, Repeats = 1, Sets = 1 }
-            }
+            ]
         };
 
         var ex3 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.80, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.85, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.90, Repeats = 2, Sets = 1 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -1667,26 +1667,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(Hyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(ElbowsRotation)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var c = new CleanAndJerk(MuscleSquatClean)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1696,38 +1696,38 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new CleanAndJerk(PowerClean)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.6, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.7, Repeats = 2, Sets = 3 }
-            }
+            ]
         };
 
         var ex2A = new Accessory(HalfSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new StaticRepeat { Duration = TimeSpan.FromSeconds(30) }
-            }
+            ]
         };
 
         var ex2B = new Accessory(KoreanJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 12 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(3, ex2A, ex2B)
-            }
+            ]
         };
 
         return session;
@@ -1737,26 +1737,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorning)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(HipSnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var c = new CleanAndJerk(SnatchOnPlates)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 6 }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1766,8 +1766,8 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(PowerSnatch, ExerciseType.Snatch)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.500, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.600, Repeats = Array(1, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.700, Repeats = Array(1, 1), Sets = 2 },
@@ -1775,38 +1775,38 @@ public class SpeedProgram : TrainingProgram
                 new MultiRepeat { Percent = 0.800, Repeats = Array(1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.850, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.875, Repeats = Array(1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new CleanAndJerk(FrontSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 4, Sets = 2 },
                 new SingleRepeat { Percent = 0.6, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.8, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.9, Repeats = 2, Sets = 1 }
-            }
+            ]
         };
 
         var ex3 = new Accessory(ChickenJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -1816,26 +1816,26 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(GoodMorningSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 8 }
-            }
+            ]
         };
 
         var b = new Accessory(ElbowsRotation)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8 }
-            }
+            ]
         };
 
         var c = new MultiCleanAndJerk(MuscleClean, FrontSquat, PressInSitPosition)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(4, 4, 4) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1845,8 +1845,8 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiCleanAndJerk(Clean, Jerk)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.50, Repeats = Array(2, 2), Sets = 2 },
                 new MultiRepeat { Percent = 0.60, Repeats = Array(2, 2), Sets = 1 },
                 new MultiRepeat { Percent = 0.70, Repeats = Array(2, 1), Sets = 1 },
@@ -1857,36 +1857,36 @@ public class SpeedProgram : TrainingProgram
                 new MultiRepeat { Percent = 0.80, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.85, Repeats = Array(1, 1), Sets = 1 },
                 new MultiRepeat { Percent = 0.90, Repeats = Array(1, 1), Sets = 1 }
-            }
+            ]
         };
 
         var ex2 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 3, Sets = 2 },
                 new SingleRepeat { Percent = 0.6, Repeats = 3, Sets = 1 },
                 new SingleRepeat { Percent = 0.7, Repeats = 3, Sets = 3 }
-            }
+            ]
         };
 
         var ex3 = new Accessory(DeathJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 6, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2),
                 new(ex3)
-            }
+            ]
         };
 
         return session;
@@ -1896,18 +1896,18 @@ public class SpeedProgram : TrainingProgram
     {
         var a = new Accessory(ReverseHyperextension)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Repeats = 10 }
-            }
+            ]
         };
 
         var b = new MultiSnatch(HipSnatchBalance, SotsPress)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Weight = Constants.Bar, Repeats = Array(4, 4) }
-            }
+            ]
         };
 
         var warmup = new BaseExercise[]
@@ -1917,30 +1917,30 @@ public class SpeedProgram : TrainingProgram
 
         var ex1 = new MultiSnatch(PowerSnatch, ExerciseType.Snatch, SnatchBalance)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new MultiRepeat { Percent = 0.5, Repeats = Array(2, 1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.6, Repeats = Array(1, 1, 1), Sets = 2 },
                 new MultiRepeat { Percent = 0.7, Repeats = Array(1, 1, 1), Sets = 3 }
-            }
+            ]
         };
 
         var ex2 = new Accessory(BarbellSquatJump)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Weight = Constants.Bar, Repeats = 8, Sets = 3 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(2, warmup),
                 new(ex1),
                 new(ex2)
-            }
+            ]
         };
 
         return session;

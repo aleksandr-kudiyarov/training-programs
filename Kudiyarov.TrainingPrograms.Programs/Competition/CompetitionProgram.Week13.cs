@@ -14,10 +14,10 @@ public sealed partial class CompetitionProgram
     {
         var ex1 = new Snatch(ExerciseType.Snatch)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.5, Repeats = 2, Sets = 5 }
-            }
+            ]
         };
 
         var ex2 = new MultiCleanAndJerk(Clean, Jerk)
@@ -27,11 +27,11 @@ public sealed partial class CompetitionProgram
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(ex1),
                 new(ex2)
-            }
+            ]
         };
 
         return session;
@@ -41,33 +41,33 @@ public sealed partial class CompetitionProgram
     {
         var ex1 = new Snatch(ExerciseType.Snatch)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.65, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 1, Sets = 3 }
-            }
+            ]
         };
 
         var ex2 = new BackSquat(ExerciseType.BackSquat)
         {
-            Repeats = new Repeat[]
-            {
+            Repeats =
+            [
                 new SingleRepeat { Percent = 0.50, Repeats = 2, Sets = 2 },
                 new SingleRepeat { Percent = 0.60, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.70, Repeats = 2, Sets = 1 },
                 new SingleRepeat { Percent = 0.75, Repeats = 2, Sets = 2 }
-            }
+            ]
         };
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(ex1),
                 new(ex2)
-            }
+            ]
         };
 
         return session;
@@ -82,10 +82,10 @@ public sealed partial class CompetitionProgram
 
         var session = new Session
         {
-            Rounds = new Round[]
-            {
+            Rounds =
+            [
                 new(ex)
-            }
+            ]
         };
 
         return session;
