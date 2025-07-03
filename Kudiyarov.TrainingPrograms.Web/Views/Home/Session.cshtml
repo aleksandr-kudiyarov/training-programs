@@ -64,9 +64,9 @@
 
                             for (var s = 0; s < repeat.Sets; s++)
                             {
-                                timer += TimeSpan.FromMinutes(2, 30);
                                 var formattedTimer = timer.ToString(@"hh\:mm\:ss");
                                 <p>@formattedTimer: @repeatDescription</p>
+                                timer += TimeSpan.FromMinutes(2, 30);
                             }
                         }
                     </div>
