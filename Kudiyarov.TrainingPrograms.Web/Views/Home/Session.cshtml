@@ -5,6 +5,7 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    var timer = TimeSpan.Zero;
 }
 
 <div>
@@ -27,7 +28,7 @@
                                 MultiRepeat multiRepeat => string.Join("+", multiRepeat.Repeats),
                                 StaticRepeat staticRepeat => $"{staticRepeat.Duration.TotalSeconds.ToString(CultureInfo.CurrentCulture)} sec",
                                 _ => throw new ArgumentOutOfRangeException()
-                                };
+                            };
 
                             const double roundFactor = 2.5;
                             var weight = repeat.Weight;
@@ -36,7 +37,7 @@
                             if (weight != null)
                             {
                                 var isAsymmetry = exercise.Name.Contains("Asymmetry", StringComparison.OrdinalIgnoreCase);
-                            
+
                                 if (isAsymmetry)
                                 {
                                     asymmetryWeight = weight * 0.85;
@@ -63,7 +64,9 @@
 
                             for (var s = 0; s < repeat.Sets; s++)
                             {
-                                <p>@repeatDescription</p>
+                                timer += TimeSpan.FromMinutes(2, 30);
+                                var formattedTimer = timer.ToString(@"hh\:mm\:ss");
+                                <p>@formattedTimer: @repeatDescription</p>
                             }
                         }
                     </div>
