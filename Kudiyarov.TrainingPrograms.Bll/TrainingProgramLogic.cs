@@ -15,6 +15,7 @@ public class TrainingProgramLogic : ITrainingProgramLogic
 {
     private readonly IMemoryCache _memoryCache;
     private readonly IProgramRepository _repository;
+    private readonly TimeSpan _cacheExpiration;
 
     public TrainingProgramLogic(
         IMemoryCache memoryCache,
@@ -22,6 +23,7 @@ public class TrainingProgramLogic : ITrainingProgramLogic
     {
         _memoryCache = memoryCache;
         _repository = repository;
+        _cacheExpiration = TimeSpan.FromMinutes(15);
     }
 
     public IEnumerable<TrainingProgram> Get()
@@ -38,7 +40,12 @@ public class TrainingProgramLogic : ITrainingProgramLogic
 
     public Session Get(SessionRequest request)
     {
-        var result = _memoryCache.GetOrCreate(request, _ => GetFromRepository(request));
+        var result = _memoryCache.GetOrCreate(request, entry =>
+        {
+            entry.SetSlidingExpiration(_cacheExpiration);
+            return GetFromRepository(request);
+        });
+
         return result!;
     }
 
