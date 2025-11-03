@@ -1,6 +1,6 @@
 namespace Kudiyarov.TrainingPrograms.Entities.Repeats;
 
-public abstract class Repeat
+public abstract record Repeat
 {
     public double? Percent { get; set; }
     public Intensity Intensity { get; init; }

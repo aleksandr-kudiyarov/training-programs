@@ -1,8 +1,8 @@
 namespace Kudiyarov.TrainingPrograms.Entities.Repeats;
 
-public class MultiRepeat : Repeat
+public record MultiRepeat : Repeat
 {
-    public IReadOnlyList<int> Repeats { get; init; } = Array.Empty<int>();
+    public IReadOnlyList<int> Repeats { get; init; } = [];
 
     public static IReadOnlyList<Repeat> GetMaxoutRepeats()
     {

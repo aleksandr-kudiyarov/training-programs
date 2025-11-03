@@ -1,6 +1,6 @@
 namespace Kudiyarov.TrainingPrograms.Entities.Repeats;
 
-public class SingleRepeat : Repeat
+public record SingleRepeat : Repeat
 {
     public int Repeats { get; init; }
 

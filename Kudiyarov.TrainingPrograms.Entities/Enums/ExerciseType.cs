@@ -163,6 +163,7 @@ public enum ExerciseType : byte
     AsymmetryPress,
     DiscPress,
     Press,
+    SnatchPress,
     PressInSitPosition,
     PressInSplitPosition,
     PressWithRubberBand,

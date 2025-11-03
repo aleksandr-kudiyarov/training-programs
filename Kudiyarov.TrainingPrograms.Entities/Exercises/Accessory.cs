@@ -31,14 +31,15 @@ public sealed class Accessory : BaseSingleExercise
 
             // Press
             ExerciseType.Press => Stats.Press,
+            ExerciseType.SnatchPress => Stats.Press,
             ExerciseType.AsymmetryPress => Stats.Press,
             ExerciseType.OverheadSplitSquat => Stats.Press,
             ExerciseType.PressInSitPosition => Stats.Press,
             ExerciseType.PressInSplitPosition => Stats.Press,
             ExerciseType.PressWithRubberBand => Stats.Press,
-            ExerciseType.SittingPress => Stats.Press,
-            ExerciseType.SnatchPressWithRubberBand => Stats.Press,
-            ExerciseType.SotsPress => Stats.Press,
+            ExerciseType.SittingPress => Stats.SnatchPress,
+            ExerciseType.SnatchPressWithRubberBand => Stats.SnatchPress,
+            ExerciseType.SotsPress => Stats.SnatchPress,
 
             // Bench Press
             ExerciseType.BenchPress => Stats.BenchPress,
