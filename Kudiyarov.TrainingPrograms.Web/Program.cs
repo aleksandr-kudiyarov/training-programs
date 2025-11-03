@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationServices();
 builder.Services.AddControllersWithViews();
 builder.Services.AddMemoryCache();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -15,5 +16,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 app.MapDefaultControllerRoute();
+app.MapHealthChecks("/healthz");
 
 app.Run();
