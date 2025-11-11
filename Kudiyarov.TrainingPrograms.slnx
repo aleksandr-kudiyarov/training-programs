@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/BLL/">
+    <Project Path="Kudiyarov.TrainingPrograms.Bll.Interfaces/Kudiyarov.TrainingPrograms.Bll.Interfaces.csproj" />
+  </Folder>
+  <Folder Name="/BLL/Implementations/">
+    <Project Path="Kudiyarov.TrainingPrograms.Bll/Kudiyarov.TrainingPrograms.Bll.csproj" />
+  </Folder>
+  <Folder Name="/Common/">
+    <Project Path="Kudiyarov.TrainingPrograms.Entities/Kudiyarov.TrainingPrograms.Entities.csproj" />
+    <Project Path="Kudiyarov.TrainingPrograms.Programs/Kudiyarov.TrainingPrograms.Programs.csproj" />
+  </Folder>
+  <Folder Name="/DAL/">
+    <Project Path="Kudiyarov.TrainingPrograms.Dal.Interfaces/Kudiyarov.TrainingPrograms.Dal.Interfaces.csproj" />
+  </Folder>
+  <Folder Name="/DAL/Implementations/">
+    <Project Path="Kudiyarov.TrainingPrograms.Dal.Memory/Kudiyarov.TrainingPrograms.Dal.Memory.csproj" />
+  </Folder>
+  <Folder Name="/PL/">
+    <Project Path="Kudiyarov.TrainingPrograms.Web/Kudiyarov.TrainingPrograms.Web.csproj" />
+  </Folder>
+</Solution>
