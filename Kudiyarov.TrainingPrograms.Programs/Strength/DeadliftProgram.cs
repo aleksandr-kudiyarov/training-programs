@@ -15,7 +15,7 @@ public sealed class DeadliftProgram : TrainingProgram
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()
     {
-        Func<Stats, Session>[] sessions =
+        return
         [
             GetSession1_1, GetSession1_2, GetSession1_3,
             GetSession2_1, GetSession2_2, GetSession2_3,
@@ -31,8 +31,6 @@ public sealed class DeadliftProgram : TrainingProgram
             GetSession12_1, EmptySession, GetSession12_3,
             GetRpSession
         ];
-
-        return sessions;
     }
 
     private static Session GetSession1_1(Stats stats)

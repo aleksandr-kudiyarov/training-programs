@@ -15,16 +15,14 @@ public class CleanProgram : BackTechniqueProgram
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()
     {
-        var sessions = new[]
-        {
+        return
+        [
             GetSession1_1, GetSession1_2, GetSession1_3, GetSession1_4, GetSession1_5,
             GetSession2_1, GetSession2_2, GetSession2_3, GetSession2_4, GetSession2_5,
             GetSession3_1, GetSession3_2, GetSession3_3, GetSession3_4, GetSession3_5,
             GetSession4_1, GetSession4_2, GetSession4_3, GetSession4_4, GetSession4_5,
             GetSession5_1, GetSession5_2, GetSession5_3, EmptySession, GetSession5_5
-        };
-
-        return sessions;
+        ];
     }
 
     private static Session GetSession1_1(Stats stats)
