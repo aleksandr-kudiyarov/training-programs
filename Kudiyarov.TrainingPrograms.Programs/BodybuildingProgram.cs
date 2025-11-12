@@ -13,7 +13,7 @@ public sealed class BodybuildingProgram : TrainingProgram
     public override ProgramType Type => ProgramType.Bodybuilding;
     public override string Name => "Bodybuilding Program";
 
-    protected override IReadOnlyList<Func<Session>> GetSessions()
+    protected override IReadOnlyList<Func<Stats, Session>> GetSessions()
     {
         return
         [
@@ -24,9 +24,9 @@ public sealed class BodybuildingProgram : TrainingProgram
         ];
     }
 
-    private static Session GetSession1_1()
+    private static Session GetSession1_1(Stats stats)
     {
-        var ex1A = new Accessory(GakkSquat)
+        var ex1A = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -34,7 +34,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1B = new Accessory(Superman)
+        var ex1B = new Accessory(stats, Superman)
         {
             Repeats =
             [
@@ -42,7 +42,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1C = new Accessory(Abs)
+        var ex1C = new Accessory(stats, Abs)
         {
             Repeats =
             [
@@ -50,7 +50,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1D = new Accessory(LuRaises)
+        var ex1D = new Accessory(stats, LuRaises)
         {
             Repeats =
             [
@@ -58,7 +58,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex2 = new BackSquat(ExerciseType.BackSquat)
+        var ex2 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -67,7 +67,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(Stats.BenchBackSquat, BenchBackSquat)
+        var ex3 = new BackSquat(stats.BenchBackSquat, BenchBackSquat)
         {
             Repeats =
             [
@@ -75,7 +75,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BackSplitSquat)
+        var ex4 = new Accessory(stats, BackSplitSquat)
         {
             Repeats =
             [
@@ -83,7 +83,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(CalfRise)
+        var ex5 = new Accessory(stats, CalfRise)
         {
             Repeats =
             [
@@ -91,7 +91,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6 = new CleanAndJerk(Stats.PushPress, PushPress)
+        var ex6 = new CleanAndJerk(stats.PushPress, PushPress)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -100,7 +100,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex7 = new Accessory(Press)
+        var ex7 = new Accessory(stats, Press)
         {
             Repeats =
             [
@@ -108,7 +108,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex8 = new Accessory(ReverseFly)
+        var ex8 = new Accessory(stats, ReverseFly)
         {
             Repeats =
             [
@@ -116,7 +116,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex9 = new Accessory(Crunch)
+        var ex9 = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -124,7 +124,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex10 = new Accessory(Plank)
+        var ex10 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -136,25 +136,25 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(2, ex1A, ex1B, ex1C, ex1D),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(ex6),
-                new(ex7),
-                new(ex8),
-                new(ex9),
-                new(ex10)
+                new Round(2, ex1A, ex1B, ex1C, ex1D),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(ex6),
+                new Round(ex7),
+                new Round(ex8),
+                new Round(ex9),
+                new Round(ex10)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_2()
+    private static Session GetSession1_2(Stats stats)
     {
-        var ex1A = new Accessory(PushUp)
+        var ex1A = new Accessory(stats, PushUp)
         {
             Repeats =
             [
@@ -162,7 +162,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(ReversePushUp)
+        var ex1B = new Accessory(stats, ReversePushUp)
         {
             Repeats =
             [
@@ -170,7 +170,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(BenchPress)
+        var ex2 = new Accessory(stats, BenchPress)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -179,7 +179,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(InclineBenchPress)
+        var ex3 = new Accessory(stats, InclineBenchPress)
         {
             Repeats =
             [
@@ -187,7 +187,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(SeatedBenchPress)
+        var ex4 = new Accessory(stats, SeatedBenchPress)
         {
             Repeats =
             [
@@ -195,7 +195,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(FrenchPress)
+        var ex5 = new Accessory(stats, FrenchPress)
         {
             Repeats =
             [
@@ -203,7 +203,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6A = new Accessory(TricepsExtension)
+        var ex6A = new Accessory(stats, TricepsExtension)
         {
             Repeats =
             [
@@ -211,7 +211,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6B = new Accessory(MilitaryPlank)
+        var ex6B = new Accessory(stats, MilitaryPlank)
         {
             Repeats =
             [
@@ -223,21 +223,21 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(2, ex6A, ex6B)
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(2, ex6A, ex6B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_3()
+    private static Session GetSession1_3(Stats stats)
     {
-        var ex = new MultiSnatch(PowerSnatch, ExerciseType.Snatch)
+        var ex = new MultiSnatch(stats, PowerSnatch, ExerciseType.Snatch)
         {
             Repeats = GetRange(0.5, 0.6, [2, 2], 6)
         };
@@ -246,16 +246,16 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex)
+                new Round(ex)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_4()
+    private static Session GetSession1_4(Stats stats)
     {
-        var ex1 = new Deadlift(Stats.SnatchDeadlift, SnatchDeadlift)
+        var ex1 = new Deadlift(stats.SnatchDeadlift, SnatchDeadlift)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -264,7 +264,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Deadlift(Stats.RomanianDeadlift, RomanianDeadlift)
+        var ex2 = new Deadlift(stats.RomanianDeadlift, RomanianDeadlift)
         {
             Repeats =
             [
@@ -272,7 +272,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(LateralPull)
+        var ex3 = new Accessory(stats, LateralPull)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -281,7 +281,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BicepsCurl)
+        var ex4 = new Accessory(stats, BicepsCurl)
         {
             Repeats =
             [
@@ -289,7 +289,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(WristFlexion)
+        var ex5 = new Accessory(stats, WristFlexion)
         {
             Repeats =
             [
@@ -297,7 +297,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6 = new Accessory(DiscJuggling)
+        var ex6 = new Accessory(stats, DiscJuggling)
         {
             Repeats =
             [
@@ -309,21 +309,21 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(ex6)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(ex6)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_1()
+    private static Session GetSession2_1(Stats stats)
     {
-        var ex1A = new Accessory(SupermanCrossed)
+        var ex1A = new Accessory(stats, SupermanCrossed)
         {
             Repeats =
             [
@@ -331,7 +331,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1B = new Accessory(GluteBridge)
+        var ex1B = new Accessory(stats, GluteBridge)
         {
             Repeats =
             [
@@ -339,7 +339,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1C = new Accessory(Abs)
+        var ex1C = new Accessory(stats, Abs)
         {
             Repeats =
             [
@@ -347,7 +347,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1D = new Accessory(LuRaises)
+        var ex1D = new Accessory(stats, LuRaises)
         {
             Repeats =
             [
@@ -355,7 +355,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1 = new CleanAndJerk(FrontSquat)
+        var ex1 = new CleanAndJerk(stats, FrontSquat)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -364,7 +364,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new BackSquat(Stats.BenchBackSquat, BenchBackSquat)
+        var ex2 = new BackSquat(stats.BenchBackSquat, BenchBackSquat)
         {
             Repeats =
             [
@@ -372,7 +372,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(ForwardLunges)
+        var ex3 = new Accessory(stats, ForwardLunges)
         {
             Repeats =
             [
@@ -380,7 +380,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Snatch(SnatchPushPress)
+        var ex4 = new Snatch(stats, SnatchPushPress)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -389,7 +389,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex5 = new Accessory(AsymmetryPress)
+        var ex5 = new Accessory(stats, AsymmetryPress)
         {
             Repeats =
             [
@@ -397,7 +397,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6A = new Accessory(LateralRaise)
+        var ex6A = new Accessory(stats, LateralRaise)
         {
             Repeats =
             [
@@ -405,7 +405,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6B = new Accessory(DiscPress)
+        var ex6B = new Accessory(stats, DiscPress)
         {
             Repeats =
             [
@@ -413,7 +413,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex7 = new Accessory(ReversePlank)
+        var ex7 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -425,23 +425,23 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C, ex1D),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(2, ex6A, ex6B),
-                new(ex7)
+                new Round(3, ex1A, ex1B, ex1C, ex1D),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(2, ex6A, ex6B),
+                new Round(ex7)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_2()
+    private static Session GetSession2_2(Stats stats)
     {
-        var ex1A = new Accessory(WidePushUp)
+        var ex1A = new Accessory(stats, WidePushUp)
         {
             Repeats =
             [
@@ -449,7 +449,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(SeatedBenchPress)
+        var ex1B = new Accessory(stats, SeatedBenchPress)
         {
             Repeats =
             [
@@ -457,7 +457,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(BenchPress)
+        var ex2 = new Accessory(stats, BenchPress)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -466,7 +466,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(AsymmetryBenchPress)
+        var ex3 = new Accessory(stats, AsymmetryBenchPress)
         {
             Repeats =
             [
@@ -474,7 +474,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(InclineBenchPressNarrowGrip)
+        var ex4 = new Accessory(stats, InclineBenchPressNarrowGrip)
         {
             Repeats =
             [
@@ -482,7 +482,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(FrenchPress)
+        var ex5 = new Accessory(stats, FrenchPress)
         {
             Repeats =
             [
@@ -490,7 +490,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6A = new Accessory(TricepsExtension)
+        var ex6A = new Accessory(stats, TricepsExtension)
         {
             Repeats =
             [
@@ -498,7 +498,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6B = new Accessory(ReversePushUp)
+        var ex6B = new Accessory(stats, ReversePushUp)
         {
             Repeats =
             [
@@ -510,21 +510,21 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(2, ex6A, ex6B)
+                new Round(3, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(2, ex6A, ex6B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_3()
+    private static Session GetSession2_3(Stats stats)
     {
-        var ex = new MultiCleanAndJerk(Clean, Jerk)
+        var ex = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats = GetRange(0.5, 0.6, [2, 2], 6)
         };
@@ -533,16 +533,16 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex)
+                new Round(ex)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_4()
+    private static Session GetSession2_4(Stats stats)
     {
-        var ex1A = new Accessory(SupermanSwim)
+        var ex1A = new Accessory(stats, SupermanSwim)
         {
             Repeats =
             [
@@ -550,7 +550,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1B = new Accessory(CoreRotation)
+        var ex1B = new Accessory(stats, CoreRotation)
         {
             Repeats =
             [
@@ -558,7 +558,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1 = new Deadlift(ExerciseType.Deadlift)
+        var ex1 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -567,7 +567,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Deadlift(AsymmetryDeadlift)
+        var ex2 = new Deadlift(stats, AsymmetryDeadlift)
         {
             Repeats =
             [
@@ -575,7 +575,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3A = new Accessory(ChinUp)
+        var ex3A = new Accessory(stats, ChinUp)
         {
             Repeats =
             [
@@ -583,7 +583,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3B = new Accessory(LateralPull)
+        var ex3B = new Accessory(stats, LateralPull)
         {
             Repeats =
             [
@@ -591,7 +591,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BicepsCurlReverseGrip)
+        var ex4 = new Accessory(stats, BicepsCurlReverseGrip)
         {
             Repeats =
             [
@@ -599,7 +599,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(WristRoll)
+        var ex5 = new Accessory(stats, WristRoll)
         {
             Repeats =
             [
@@ -607,7 +607,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6A = new Accessory(Plank)
+        var ex6A = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -615,7 +615,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6B = new Accessory(Crunch)
+        var ex6B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -627,22 +627,22 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B),
-                new(ex1),
-                new(ex2),
-                new(4, ex3A, ex3B),
-                new(ex4),
-                new(ex5),
-                new(2, ex6A, ex6B)
+                new Round(3, ex1A, ex1B),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(4, ex3A, ex3B),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(2, ex6A, ex6B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_1()
+    private static Session GetSession3_1(Stats stats)
     {
-        var ex1A = new Accessory(GakkSquat)
+        var ex1A = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -650,7 +650,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1B = new Accessory(Superman)
+        var ex1B = new Accessory(stats, Superman)
         {
             Repeats =
             [
@@ -658,7 +658,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1C = new Accessory(Abs)
+        var ex1C = new Accessory(stats, Abs)
         {
             Repeats =
             [
@@ -666,7 +666,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1D = new Accessory(LuRaises)
+        var ex1D = new Accessory(stats, LuRaises)
         {
             Repeats =
             [
@@ -674,7 +674,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
         
-        var ex1 = new BackSquat(ExerciseType.BackSquat)
+        var ex1 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -683,7 +683,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(BackLunges)
+        var ex2 = new Accessory(stats, BackLunges)
         {
             Repeats =
             [
@@ -691,7 +691,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(CalfRise)
+        var ex3 = new Accessory(stats, CalfRise)
         {
             Repeats =
             [
@@ -699,7 +699,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(SittingPress)
+        var ex4 = new Accessory(stats, SittingPress)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -708,7 +708,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(PressWithRubberBand)
+        var ex5 = new Accessory(stats, PressWithRubberBand)
         {
             Repeats =
             [
@@ -716,7 +716,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6 = new Accessory(Halo)
+        var ex6 = new Accessory(stats, Halo)
         {
             Repeats =
             [
@@ -728,22 +728,22 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C, ex1D),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(ex6)
+                new Round(3, ex1A, ex1B, ex1C, ex1D),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(ex6)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_2()
+    private static Session GetSession3_2(Stats stats)
     {
-        var ex1A = new Accessory(ReversePushUp)
+        var ex1A = new Accessory(stats, ReversePushUp)
         {
             Repeats =
             [
@@ -751,7 +751,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(SeatedBenchPress)
+        var ex1B = new Accessory(stats, SeatedBenchPress)
         {
             Repeats =
             [
@@ -759,7 +759,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(BenchPress)
+        var ex2 = new Accessory(stats, BenchPress)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -768,7 +768,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(InclineBenchPressWideGrip)
+        var ex3 = new Accessory(stats, InclineBenchPressWideGrip)
         {
             Repeats =
             [
@@ -776,7 +776,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(AsymmetryBenchPress)
+        var ex4 = new Accessory(stats, AsymmetryBenchPress)
         {
             Repeats =
             [
@@ -784,7 +784,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(FrenchPress)
+        var ex5 = new Accessory(stats, FrenchPress)
         {
             Repeats =
             [
@@ -792,7 +792,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6A = new Accessory(Plank)
+        var ex6A = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -800,7 +800,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6B = new Accessory(ReversePlank)
+        var ex6B = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -812,26 +812,26 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(3, ex6A, ex6B)
+                new Round(3, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(3, ex6A, ex6B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_3()
+    private static Session GetSession3_3(Stats stats)
     {
-        var ex1 = new MultiSnatch(ExerciseType.Snatch, OverheadSquat)
+        var ex1 = new MultiSnatch(stats, ExerciseType.Snatch, OverheadSquat)
         {
             Repeats = GetRange(0.5, 0.6, [3, 3], 5)
         };
 
-        var ex2 = new MultiCleanAndJerk(FrontSquat, Jerk)
+        var ex2 = new MultiCleanAndJerk(stats, FrontSquat, Jerk)
         {
             Repeats = GetRange(0.5, 0.6, [1, 4], 5)
         };
@@ -840,17 +840,17 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2)
+                new Round(ex1),
+                new Round(ex2)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_4()
+    private static Session GetSession3_4(Stats stats)
     {
-        var ex1 = new Snatch(Stats.DeficitMediumGripPull, DeficitMediumGripPull)
+        var ex1 = new Snatch(stats.DeficitMediumGripPull, DeficitMediumGripPull)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -859,7 +859,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Deadlift(Stats.RomanianDeadlift, RomanianDeadlift)
+        var ex2 = new Deadlift(stats.RomanianDeadlift, RomanianDeadlift)
         {
             Repeats =
             [
@@ -867,7 +867,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3A = new Accessory(PullUp)
+        var ex3A = new Accessory(stats, PullUp)
         {
             Repeats =
             [
@@ -875,7 +875,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3B = new Accessory(LateralPullReverseGrip)
+        var ex3B = new Accessory(stats, LateralPullReverseGrip)
         {
             Repeats =
             [
@@ -883,7 +883,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4A = new Accessory(BicepsCurl)
+        var ex4A = new Accessory(stats, BicepsCurl)
         {
             Repeats =
             [
@@ -891,7 +891,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4B = new Accessory(DiscHammerCurls)
+        var ex4B = new Accessory(stats, DiscHammerCurls)
         {
             Repeats =
             [
@@ -899,7 +899,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Crunch)
+        var ex5 = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -911,20 +911,20 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(3, ex3A, ex3B),
-                new(3, ex4A, ex4B),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(3, ex3A, ex3B),
+                new Round(3, ex4A, ex4B),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_1()
+    private static Session GetSession4_1(Stats stats)
     {
-        var ex1 = new CleanAndJerk(Stats.FrontSquat, FrontSquat)
+        var ex1 = new CleanAndJerk(stats.FrontSquat, FrontSquat)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -933,7 +933,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new BackSquat(Stats.BenchBackSquat, BenchBackSquat)
+        var ex2 = new BackSquat(stats.BenchBackSquat, BenchBackSquat)
         {
             Repeats =
             [
@@ -941,7 +941,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(SingleLegReach)
+        var ex3 = new Accessory(stats, SingleLegReach)
         {
             Repeats =
             [
@@ -949,7 +949,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(SquatReach)
+        var ex4 = new Accessory(stats, SquatReach)
         {
             Repeats =
             [
@@ -957,7 +957,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(Stats.PushPress, PushPress)
+        var ex5 = new CleanAndJerk(stats.PushPress, PushPress)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -966,7 +966,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6A = new Accessory(AsymmetryPress)
+        var ex6A = new Accessory(stats, AsymmetryPress)
         {
             Repeats =
             [
@@ -974,7 +974,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6B = new Accessory(DiscPress)
+        var ex6B = new Accessory(stats, DiscPress)
         {
             Repeats =
             [
@@ -982,7 +982,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex7A = new Accessory(DiscFrontRise)
+        var ex7A = new Accessory(stats, DiscFrontRise)
         {
             Repeats =
             [
@@ -990,7 +990,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex7B = new Accessory(DiscRussianTwist)
+        var ex7B = new Accessory(stats, DiscRussianTwist)
         {
             Repeats =
             [
@@ -1002,22 +1002,22 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(4, ex6A, ex6B),
-                new(2, ex7A, ex7B)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(4, ex6A, ex6B),
+                new Round(2, ex7A, ex7B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_2()
+    private static Session GetSession4_2(Stats stats)
     {
-        var ex1A = new Accessory(ReversePushUp)
+        var ex1A = new Accessory(stats, ReversePushUp)
         {
             Repeats =
             [
@@ -1025,7 +1025,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(SittingPress)
+        var ex1B = new Accessory(stats, SittingPress)
         {
             Repeats =
             [
@@ -1033,7 +1033,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(InclineBenchPressWideGrip)
+        var ex2 = new Accessory(stats, InclineBenchPressWideGrip)
         {
             Repeats =
             [
@@ -1041,7 +1041,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(InclineBenchPressNarrowGrip)
+        var ex3 = new Accessory(stats, InclineBenchPressNarrowGrip)
         {
             Repeats =
             [
@@ -1049,7 +1049,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4A = new Accessory(DeclineBenchPress)
+        var ex4A = new Accessory(stats, DeclineBenchPress)
         {
             Repeats =
             [
@@ -1057,7 +1057,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4B = new Accessory(DiscBridgePullover)
+        var ex4B = new Accessory(stats, DiscBridgePullover)
         {
             Repeats =
             [
@@ -1065,7 +1065,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(DumbbellFrenchPress)
+        var ex5 = new Accessory(stats, DumbbellFrenchPress)
         {
             Repeats =
             [
@@ -1073,7 +1073,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex6 = new Accessory(MilitaryPlank)
+        var ex6 = new Accessory(stats, MilitaryPlank)
         {
             Repeats =
             [
@@ -1085,26 +1085,26 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(2, ex4A, ex4B),
-                new(ex5),
-                new(ex6)
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(2, ex4A, ex4B),
+                new Round(ex5),
+                new Round(ex6)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_3()
+    private static Session GetSession4_3(Stats stats)
     {
-        var ex1 = new MultiCleanAndJerk(CleanPullTillPowerPosition, MuscleSquatClean)
+        var ex1 = new MultiCleanAndJerk(stats, CleanPullTillPowerPosition, MuscleSquatClean)
         {
             Repeats = GetRange(0.5, 0.6, [3, 3], 5)
         };
 
-        var ex2 = new CleanAndJerk(Clean)
+        var ex2 = new CleanAndJerk(stats, Clean)
         {
             Repeats = GetRange(0.5, 0.6, 3, 6)
         };
@@ -1113,17 +1113,17 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2)
+                new Round(ex1),
+                new Round(ex2)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_4()
+    private static Session GetSession4_4(Stats stats)
     {
-        var ex1 = new Deadlift(ExerciseType.Deadlift)
+        var ex1 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             IsWarmupNeeded = true,
             Repeats =
@@ -1132,7 +1132,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Deadlift(AsymmetryDeadlift)
+        var ex2 = new Deadlift(stats, AsymmetryDeadlift)
         {
             Repeats =
             [
@@ -1140,7 +1140,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Accessory(LateralPull)
+        var ex3 = new Accessory(stats, LateralPull)
         {
             Repeats =
             [
@@ -1148,7 +1148,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4A = new Accessory(BicepsCurl)
+        var ex4A = new Accessory(stats, BicepsCurl)
         {
             Repeats =
             [
@@ -1156,7 +1156,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex4B = new Accessory(WristFlexion)
+        var ex4B = new Accessory(stats, WristFlexion)
         {
             Repeats =
             [
@@ -1164,7 +1164,7 @@ public sealed class BodybuildingProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(DiscJuggling)
+        var ex5 = new Accessory(stats, DiscJuggling)
         {
             Repeats =
             [
@@ -1176,11 +1176,11 @@ public sealed class BodybuildingProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(3, ex4A, ex4B),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(3, ex4A, ex4B),
+                new Round(ex5)
             ]
         };
 

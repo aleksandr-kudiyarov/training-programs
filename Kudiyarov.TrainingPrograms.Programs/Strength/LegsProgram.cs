@@ -13,7 +13,7 @@ public sealed class LegsProgram : TrainingProgram
     public override ProgramType Type => ProgramType.Legs;
     public override string Name => "Legs Program";
 
-    protected override IReadOnlyList<Func<Session>> GetSessions()
+    protected override IReadOnlyList<Func<Stats, Session>> GetSessions()
     {
         return
         [
@@ -25,9 +25,9 @@ public sealed class LegsProgram : TrainingProgram
         ];
     }
 
-    private static Session GetSession1_1()
+    private static Session GetSession1_1(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -35,7 +35,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -43,7 +43,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -51,7 +51,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(ExerciseType.Snatch, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, ExerciseType.Snatch, OverheadSquat)
         {
             Repeats =
             [
@@ -59,7 +59,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -68,7 +68,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(DeficitRomanianDeadlift)
+        var ex4 = new CleanAndJerk(stats, DeficitRomanianDeadlift)
         {
             Repeats =
             [
@@ -76,7 +76,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(BoxJump)
+        var ex5 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -88,20 +88,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_2()
+    private static Session GetSession1_2(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -109,7 +109,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -117,7 +117,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -125,7 +125,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, FrontSquat, Jerk)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, FrontSquat, Jerk)
         {
             Repeats =
             [
@@ -133,7 +133,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -144,7 +144,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(BackSplitSquat)
+        var ex4 = new CleanAndJerk(stats, BackSplitSquat)
         {
             Repeats =
             [
@@ -152,7 +152,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(BoxJump)
+        var ex5 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -164,20 +164,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_3()
+    private static Session GetSession1_3(Stats stats)
     {
-        var ex1A = new Accessory(ReverseHyperextension)
+        var ex1A = new Accessory(stats, ReverseHyperextension)
         {
             Repeats =
             [
@@ -185,7 +185,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -193,7 +193,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -201,7 +201,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new BackSquat(BackSquatNarrowFeet)
+        var ex2 = new BackSquat(stats, BackSquatNarrowFeet)
         {
             Repeats =
             [
@@ -209,7 +209,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(GoodMorning)
+        var ex3 = new CleanAndJerk(stats, GoodMorning)
         {
             Repeats =
             [
@@ -217,7 +217,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BarbellSquatJump)
+        var ex4 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -229,19 +229,19 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_4()
+    private static Session GetSession1_4(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -249,7 +249,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -257,7 +257,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(BoxJump)
+        var ex1C = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -265,7 +265,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -274,7 +274,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex3 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -287,18 +287,18 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_1()
+    private static Session GetSession2_1(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -306,7 +306,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -314,7 +314,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -322,7 +322,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(PowerSnatch, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, PowerSnatch, OverheadSquat)
         {
             Repeats =
             [
@@ -330,7 +330,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -340,7 +340,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(GoodMorningSquat)
+        var ex4 = new CleanAndJerk(stats, GoodMorningSquat)
         {
             Repeats =
             [
@@ -348,7 +348,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(BoxJump)
+        var ex5 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -360,20 +360,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_2()
+    private static Session GetSession2_2(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -381,7 +381,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -389,7 +389,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -397,7 +397,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, FrontSquat, Jerk)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, FrontSquat, Jerk)
         {
             Repeats =
             [
@@ -405,7 +405,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(BackSquatPause)
+        var ex3 = new BackSquat(stats, BackSquatPause)
         {
             Repeats =
             [
@@ -415,7 +415,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new BackSquat(BenchBackSquat)
+        var ex4 = new BackSquat(stats, BenchBackSquat)
         {
             Repeats =
             [
@@ -429,7 +429,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(DeficitRomanianDeadlift)
+        var ex5 = new CleanAndJerk(stats, DeficitRomanianDeadlift)
         {
             Repeats =
             [
@@ -441,20 +441,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_3()
+    private static Session GetSession2_3(Stats stats)
     {
-        var ex1A = new Accessory(ReverseHyperextension)
+        var ex1A = new Accessory(stats, ReverseHyperextension)
         {
             Repeats =
             [
@@ -462,7 +462,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -470,7 +470,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -478,7 +478,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(FrontSquat)
+        var ex2 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -490,7 +490,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(BackLunges)
+        var ex3 = new CleanAndJerk(stats, BackLunges)
         {
             Repeats =
             [
@@ -498,7 +498,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BarbellSquatJump)
+        var ex4 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -510,19 +510,19 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_4()
+    private static Session GetSession2_4(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -530,7 +530,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -538,7 +538,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(BoxJump)
+        var ex1C = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -546,7 +546,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -555,7 +555,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex3 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -568,18 +568,18 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_1()
+    private static Session GetSession3_1(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -587,7 +587,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -595,7 +595,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -603,7 +603,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(ExerciseType.Snatch, SnatchBalance, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, ExerciseType.Snatch, SnatchBalance, OverheadSquat)
         {
             Repeats =
             [
@@ -611,7 +611,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -623,7 +623,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new BackSquat(BenchBackSquat)
+        var ex4 = new BackSquat(stats, BenchBackSquat)
         {
             Repeats =
             [
@@ -633,7 +633,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(BoxJump)
+        var ex5 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -645,20 +645,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_2()
+    private static Session GetSession3_2(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -666,7 +666,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -674,7 +674,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -682,7 +682,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(PowerClean, FrontSquat, PushPress)
+        var ex2 = new MultiCleanAndJerk(stats, PowerClean, FrontSquat, PushPress)
         {
             Repeats =
             [
@@ -690,7 +690,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -706,7 +706,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(DeficitRomanianDeadlift)
+        var ex4 = new CleanAndJerk(stats, DeficitRomanianDeadlift)
         {
             Repeats =
             [
@@ -714,7 +714,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(GoodMorning)
+        var ex5 = new CleanAndJerk(stats, GoodMorning)
         {
             Repeats =
             [
@@ -726,20 +726,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_3()
+    private static Session GetSession3_3(Stats stats)
     {
-        var ex1A = new Accessory(ReverseHyperextension)
+        var ex1A = new Accessory(stats, ReverseHyperextension)
         {
             Repeats =
             [
@@ -747,7 +747,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -755,7 +755,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -763,7 +763,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new BackSquat(ExerciseType.BackSquat)
+        var ex2 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -779,7 +779,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -795,7 +795,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(BackSplitSquat)
+        var ex4 = new CleanAndJerk(stats, BackSplitSquat)
         {
             Repeats =
             [
@@ -803,7 +803,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(BoxJump)
+        var ex5 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -815,20 +815,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_4()
+    private static Session GetSession3_4(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -836,7 +836,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -844,7 +844,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(BoxJump)
+        var ex1C = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -852,7 +852,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -862,7 +862,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex3 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -876,18 +876,18 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_1()
+    private static Session GetSession4_1(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -895,7 +895,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -903,7 +903,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -911,7 +911,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(PowerSnatch, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, PowerSnatch, OverheadSquat)
         {
             Repeats =
             [
@@ -919,7 +919,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -933,7 +933,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new BackSquat(BenchBackSquat)
+        var ex4 = new BackSquat(stats, BenchBackSquat)
         {
             Repeats =
             [
@@ -944,7 +944,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(GoodMorningSquat)
+        var ex5 = new CleanAndJerk(stats, GoodMorningSquat)
         {
             Repeats =
             [
@@ -952,7 +952,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex6 = new Accessory(BarbellSquatJump)
+        var ex6 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -964,21 +964,21 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(ex6)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(ex6)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_2()
+    private static Session GetSession4_2(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -986,7 +986,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -994,7 +994,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1002,7 +1002,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(CleanPull, Clean, FrontSquat, Jerk)
+        var ex2 = new MultiCleanAndJerk(stats, CleanPull, Clean, FrontSquat, Jerk)
         {
             Repeats =
             [
@@ -1010,7 +1010,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -1027,7 +1027,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(BackLunges)
+        var ex4 = new CleanAndJerk(stats, BackLunges)
         {
             Repeats =
             [
@@ -1035,7 +1035,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(DeficitRomanianDeadlift)
+        var ex5 = new CleanAndJerk(stats, DeficitRomanianDeadlift)
         {
             Repeats =
             [
@@ -1047,20 +1047,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_3()
+    private static Session GetSession4_3(Stats stats)
     {
-        var ex1A = new Accessory(ReverseHyperextension)
+        var ex1A = new Accessory(stats, ReverseHyperextension)
         {
             Repeats =
             [
@@ -1068,7 +1068,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -1076,7 +1076,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(GakkSquat)
+        var ex1C = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1084,7 +1084,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(BackSplitSquat)
+        var ex2 = new CleanAndJerk(stats, BackSplitSquat)
         {
             Repeats =
             [
@@ -1092,7 +1092,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1105,7 +1105,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(FrontSquat)
+        var ex4 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -1118,7 +1118,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(BoxJump)
+        var ex5 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1130,20 +1130,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_4()
+    private static Session GetSession4_4(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1151,7 +1151,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -1159,7 +1159,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(BoxJump)
+        var ex1C = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1167,7 +1167,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1176,7 +1176,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex3 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -1189,18 +1189,18 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(3, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3)
+                new Round(3, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_1()
+    private static Session GetSession5_1(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1208,7 +1208,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(GakkSquat)
+        var ex1B = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1216,7 +1216,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(ExerciseType.Snatch, SnatchBalance, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, ExerciseType.Snatch, SnatchBalance, OverheadSquat)
         {
             Repeats =
             [
@@ -1224,7 +1224,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1238,7 +1238,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new BackSquat(BackSquatPause)
+        var ex4 = new BackSquat(stats, BackSquatPause)
         {
             Repeats =
             [
@@ -1248,7 +1248,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(GoodMorningSquat)
+        var ex5 = new CleanAndJerk(stats, GoodMorningSquat)
         {
             Repeats =
             [
@@ -1256,7 +1256,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex6 = new Accessory(BarbellSquatJump)
+        var ex6 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -1268,21 +1268,21 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(ex6)
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(ex6)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_2()
+    private static Session GetSession5_2(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1290,7 +1290,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(GakkSquat)
+        var ex1B = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1298,7 +1298,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, FrontSquat, Jerk)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, FrontSquat, Jerk)
         {
             Repeats =
             [
@@ -1306,7 +1306,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -1318,7 +1318,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(RomanianDeadlift)
+        var ex4 = new CleanAndJerk(stats, RomanianDeadlift)
         {
             Repeats =
             [
@@ -1326,7 +1326,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(BoxJump)
+        var ex5 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1338,20 +1338,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_3()
+    private static Session GetSession5_3(Stats stats)
     {
-        var ex1A = new Accessory(ReverseHyperextension)
+        var ex1A = new Accessory(stats, ReverseHyperextension)
         {
             Repeats =
             [
@@ -1359,7 +1359,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(GakkSquat)
+        var ex1B = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1367,7 +1367,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(BackSplitSquat)
+        var ex2 = new CleanAndJerk(stats, BackSplitSquat)
         {
             Repeats =
             [
@@ -1375,7 +1375,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -1389,7 +1389,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new BackSquat(ExerciseType.BackSquat)
+        var ex4 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1403,7 +1403,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(BoxJump)
+        var ex5 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1415,20 +1415,20 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_4()
+    private static Session GetSession5_4(Stats stats)
     {
-        var ex1A = new Accessory(Hyperextension)
+        var ex1A = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1436,7 +1436,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1B = new Accessory(Crunch)
+        var ex1B = new Accessory(stats, Crunch)
         {
             Repeats =
             [
@@ -1444,7 +1444,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex1C = new Accessory(BoxJump)
+        var ex1C = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1452,7 +1452,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1462,7 +1462,7 @@ public sealed class LegsProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex3 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -1476,9 +1476,9 @@ public sealed class LegsProgram : TrainingProgram
         {
             Rounds =
             [
-                new(2, ex1A, ex1B, ex1C),
-                new(ex2),
-                new(ex3)
+                new Round(2, ex1A, ex1B, ex1C),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 

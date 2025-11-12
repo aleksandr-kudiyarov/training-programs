@@ -13,7 +13,7 @@ public class CleanProgram : BackTechniqueProgram
     public override ProgramType Type => ProgramType.Clean;
     public override string Name => "Clean Program";
 
-    protected override IReadOnlyList<Func<Session>> GetSessions()
+    protected override IReadOnlyList<Func<Stats, Session>> GetSessions()
     {
         var sessions = new[]
         {
@@ -27,11 +27,11 @@ public class CleanProgram : BackTechniqueProgram
         return sessions;
     }
 
-    private static Session GetSession1_1()
+    private static Session GetSession1_1(Stats stats)
     {
-        var warmup = GetWarmup1(15, 15, 5);
+        var warmup = GetWarmup1(stats, 15, 15, 5);
 
-        var ex1 = new MultiCleanAndJerk(CleanStretching, FrontSquat)
+        var ex1 = new MultiCleanAndJerk(stats, CleanStretching, FrontSquat)
         {
             Repeats =
             [
@@ -39,7 +39,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(CleanPull, Clean)
+        var ex2 = new MultiCleanAndJerk(stats, CleanPull, Clean)
         {
             Repeats =
             [
@@ -49,7 +49,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(CleanPull)
+        var ex3 = new CleanAndJerk(stats, CleanPull)
         {
             Repeats =
             [
@@ -58,7 +58,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new BackSquat(ExerciseType.BackSquat)
+        var ex4 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -67,7 +67,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -79,32 +79,32 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(2, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_2()
+    private static Session GetSession1_2(Stats stats)
     {
-        var warmup = GetWarmup2(15, 15);
+        var warmup = GetWarmup2(stats, 15, 15);
 
-        var ex1 = new Snatch(MuscleSnatch)
+        var ex1 = new Snatch(stats, MuscleSnatch)
         {
             Repeats =
             [
-                // todo ??
+                // stats ??
                 new SingleRepeat { Percent = 0.4, Repeats = 6, Sets = 3 }
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -114,7 +114,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(GoodMorningSquat)
+        var ex3 = new CleanAndJerk(stats, GoodMorningSquat)
         {
             Repeats =
             [
@@ -126,21 +126,21 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3)
+                new Round(2, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_3()
+    private static Session GetSession1_3(Stats stats)
     {
-        var warmup = GetWarmup1(15, 15, 5);
+        var warmup = GetWarmup1(stats, 15, 15, 5);
 
-        var ex1 = new CleanAndJerk(HipMuscleClean)
+        var ex1 = new CleanAndJerk(stats, HipMuscleClean)
         {
             Repeats =
             [
@@ -148,7 +148,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(PowerClean, HangPowerClean)
+        var ex2 = new MultiCleanAndJerk(stats, PowerClean, HangPowerClean)
         {
             Repeats =
             [
@@ -158,7 +158,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(MediumGripPull)
+        var ex3 = new CleanAndJerk(stats, MediumGripPull)
         {
             Repeats =
             [
@@ -166,7 +166,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(FrontSquat)
+        var ex4 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -182,22 +182,22 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(2, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_4()
+    private static Session GetSession1_4(Stats stats)
     {
-        var warmup = GetWarmup1(15, 15, 5);
+        var warmup = GetWarmup1(stats, 15, 15, 5);
 
-        var ex1A = new Accessory(ElbowsRotation)
+        var ex1A = new Accessory(stats, ElbowsRotation)
         {
             Repeats =
             [
@@ -205,7 +205,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex1B = new Accessory(WallSquat)
+        var ex1B = new Accessory(stats, WallSquat)
         {
             Repeats =
             [
@@ -213,7 +213,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(Jerk)
+        var ex2 = new CleanAndJerk(stats, Jerk)
         {
             Repeats =
             [
@@ -222,7 +222,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new Accessory(PressWithRubberBand)
+        var ex3 = new Accessory(stats, PressWithRubberBand)
         {
             Repeats =
             [
@@ -230,7 +230,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new Accessory(ReversePlank)
+        var ex4 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -242,22 +242,22 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(2, warmup),
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_5()
+    private static Session GetSession1_5(Stats stats)
     {
-        var warmup = GetWarmup2(15, 15);
+        var warmup = GetWarmup2(stats, 15, 15);
 
-        var ex1A = new Accessory(CleanPull)
+        var ex1A = new Accessory(stats, CleanPull)
         {
             Repeats =
             [
@@ -265,7 +265,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex1B = new Accessory(HipCleanBalance)
+        var ex1B = new Accessory(stats, HipCleanBalance)
         {
             Repeats =
             [
@@ -273,7 +273,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(DeficitClean)
+        var ex2 = new CleanAndJerk(stats, DeficitClean)
         {
             Repeats =
             [
@@ -285,7 +285,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(DeficitCleanPull)
+        var ex3 = new CleanAndJerk(stats, DeficitCleanPull)
         {
             Repeats =
             [
@@ -295,7 +295,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new BackSquat(BackSquatNarrowFeet)
+        var ex4 = new BackSquat(stats, BackSquatNarrowFeet)
         {
             Repeats =
             [
@@ -308,22 +308,22 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(2, warmup),
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_1()
+    private static Session GetSession2_1(Stats stats)
     {
-        var warmup = GetWarmup2(15, 15, 5);
+        var warmup = GetWarmup2(stats, 15, 15, 5);
 
-        var ex1 = new MultiCleanAndJerk(CleanStretching, FrontSquat)
+        var ex1 = new MultiCleanAndJerk(stats, CleanStretching, FrontSquat)
         {
             Repeats =
             [
@@ -331,12 +331,12 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(PowerClean, FrontSquat, PushPress)
+        var ex2 = new MultiCleanAndJerk(stats, PowerClean, FrontSquat, PushPress)
         {
             Repeats = GetRange(0.5, 0.6, Array(2, 1, 2), 3)
         };
 
-        var ex3 = new CleanAndJerk(MediumGripPull)
+        var ex3 = new CleanAndJerk(stats, MediumGripPull)
         {
             Repeats =
             [
@@ -346,7 +346,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(FrontSquat)
+        var ex4 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -357,7 +357,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -369,23 +369,23 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_2()
+    private static Session GetSession2_2(Stats stats)
     {
-        var warmup = GetWarmup4(15, 15, 15);
+        var warmup = GetWarmup4(stats, 15, 15, 15);
 
-        var ex1 = new Snatch(MuscleSnatch)
+        var ex1 = new Snatch(stats, MuscleSnatch)
         {
             Repeats =
             [
@@ -393,7 +393,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(PowerSnatch, ExerciseType.Snatch)
+        var ex2 = new MultiSnatch(stats, PowerSnatch, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -403,16 +403,16 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new Snatch(SotsPress)
+        var ex3 = new Snatch(stats, SotsPress)
         {
             Repeats =
             [
-                // todo ??
+                // stats ??
                 new SingleRepeat { Percent = 0.3, Repeats = 8, Sets = 3 }
             ]
         };
 
-        var ex4 = new Accessory(BarbellSquatJump)
+        var ex4 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -424,24 +424,24 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(3, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_3()
+    private static Session GetSession2_3(Stats stats)
     {
-        var warmup = GetWarmup2(15, 15, 5);
+        var warmup = GetWarmup2(stats, 15, 15, 5);
 
-        var ex1 = GetCleanWarmup(6);
+        var ex1 = GetCleanWarmup(stats, 6);
 
-        var ex2 = new MultiCleanAndJerk(CleanPullTillPowerPosition, Clean)
+        var ex2 = new MultiCleanAndJerk(stats, CleanPullTillPowerPosition, Clean)
         {
             Repeats =
             [
@@ -454,7 +454,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(DeficitCleanPull)
+        var ex3 = new CleanAndJerk(stats, DeficitCleanPull)
         {
             Repeats =
             [
@@ -464,7 +464,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new BackSquat(BenchBackSquat)
+        var ex4 = new BackSquat(stats, BenchBackSquat)
         {
             Repeats =
             [
@@ -478,22 +478,22 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(3, ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(3, warmup),
+                new Round(3, ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_4()
+    private static Session GetSession2_4(Stats stats)
     {
-        var warmup = GetWarmup2(15, 15, 5);
+        var warmup = GetWarmup2(stats, 15, 15, 5);
 
-        var ex2A = new Accessory(ElbowsRotation)
+        var ex2A = new Accessory(stats, ElbowsRotation)
         {
             Repeats =
             [
@@ -501,7 +501,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2B = new Accessory(WallSquat)
+        var ex2B = new Accessory(stats, WallSquat)
         {
             Repeats =
             [
@@ -509,7 +509,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(Jerk)
+        var ex3 = new CleanAndJerk(stats, Jerk)
         {
             Repeats =
             [
@@ -520,7 +520,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(GoodMorning)
+        var ex4 = new CleanAndJerk(stats, GoodMorning)
         {
             Repeats =
             [
@@ -528,7 +528,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -540,22 +540,22 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(2, ex2A, ex2B),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, warmup),
+                new Round(2, ex2A, ex2B),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_5()
+    private static Session GetSession2_5(Stats stats)
     {
-        var warmup = GetWarmup4(15, 15, 15);
+        var warmup = GetWarmup4(stats, 15, 15, 15);
 
-        var ex2A = new Accessory(HipMuscleClean)
+        var ex2A = new Accessory(stats, HipMuscleClean)
         {
             Repeats =
             [
@@ -563,7 +563,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2B = new Accessory(BoxFrontSquat)
+        var ex2B = new Accessory(stats, BoxFrontSquat)
         {
             Repeats =
             [
@@ -571,7 +571,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(Clean, FrontSquat)
+        var ex3 = new MultiCleanAndJerk(stats, Clean, FrontSquat)
         {
             Repeats =
             [
@@ -585,7 +585,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(CleanPullSlowlyDown)
+        var ex4 = new CleanAndJerk(stats, CleanPullSlowlyDown)
         {
             Repeats =
             [
@@ -596,7 +596,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(FrontSquat)
+        var ex5 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -608,7 +608,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex6 = new Accessory(DeathJump)
+        var ex6 = new Accessory(stats, DeathJump)
         {
             Repeats =
             [
@@ -620,23 +620,23 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(3, ex2A, ex2B),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(ex6)
+                new Round(3, warmup),
+                new Round(3, ex2A, ex2B),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(ex6)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_1()
+    private static Session GetSession3_1(Stats stats)
     {
-        var warmup = GetWarmup1(15, 15, 5);
+        var warmup = GetWarmup1(stats, 15, 15, 5);
 
-        var ex2A = new Accessory(ElbowsRotationRackSupport)
+        var ex2A = new Accessory(stats, ElbowsRotationRackSupport)
         {
             Repeats =
             [
@@ -644,7 +644,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2B = new Accessory(BoxFrontSquat)
+        var ex2B = new Accessory(stats, BoxFrontSquat)
         {
             Repeats =
             [
@@ -652,7 +652,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(CleanPullTillPowerPosition, MuscleSquatClean)
+        var ex3 = new MultiCleanAndJerk(stats, CleanPullTillPowerPosition, MuscleSquatClean)
         {
             Repeats =
             [
@@ -660,7 +660,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(DeficitRomanianDeadlift)
+        var ex4 = new CleanAndJerk(stats, DeficitRomanianDeadlift)
         {
             Repeats =
             [
@@ -668,7 +668,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new BackSquat(ExerciseType.BackSquat)
+        var ex5 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -678,7 +678,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex6 = new Accessory(ReversePlank)
+        var ex6 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -690,23 +690,23 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(3, ex2A, ex2B),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(ex6)
+                new Round(3, warmup),
+                new Round(3, ex2A, ex2B),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(ex6)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_2()
+    private static Session GetSession3_2(Stats stats)
     {
-        var warmup = GetWarmup5(15, 15, 15);
+        var warmup = GetWarmup5(stats, 15, 15, 15);
 
-        var ex2A = new Accessory(ElbowsRotation)
+        var ex2A = new Accessory(stats, ElbowsRotation)
         {
             Repeats =
             [
@@ -714,7 +714,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2B = new Accessory(WallSquat)
+        var ex2B = new Accessory(stats, WallSquat)
         {
             Repeats =
             [
@@ -722,7 +722,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(Jerk)
+        var ex3 = new CleanAndJerk(stats, Jerk)
         {
             Repeats =
             [
@@ -730,7 +730,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new Accessory(Press)
+        var ex4 = new Accessory(stats, Press)
         {
             Repeats =
             [
@@ -738,7 +738,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new Accessory(DeathJump)
+        var ex5 = new Accessory(stats, DeathJump)
         {
             Repeats =
             [
@@ -750,22 +750,22 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(2, ex2A, ex2B),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, warmup),
+                new Round(2, ex2A, ex2B),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_3()
+    private static Session GetSession3_3(Stats stats)
     {
-        var warmup = GetWarmup1(15, 15, 5);
+        var warmup = GetWarmup1(stats, 15, 15, 5);
 
-        var ex2A = new Accessory(CleanPull)
+        var ex2A = new Accessory(stats, CleanPull)
         {
             Repeats =
             [
@@ -773,7 +773,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2B = new Accessory(HipCleanBalance)
+        var ex2B = new Accessory(stats, HipCleanBalance)
         {
             Repeats =
             [
@@ -781,7 +781,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(CleanFromBlocks, FrontSquat)
+        var ex3 = new MultiCleanAndJerk(stats, CleanFromBlocks, FrontSquat)
         {
             Repeats =
             [
@@ -795,7 +795,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(CleanFromBlocks)
+        var ex4 = new CleanAndJerk(stats, CleanFromBlocks)
         {
             Repeats =
             [
@@ -805,7 +805,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(FrontSquat)
+        var ex5 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -816,7 +816,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex6 = new Accessory(ReversePlank)
+        var ex6 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -828,23 +828,23 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(3, ex2A, ex2B),
-                new(ex3),
-                new(ex4),
-                new(ex5),
-                new(ex6)
+                new Round(3, warmup),
+                new Round(3, ex2A, ex2B),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5),
+                new Round(ex6)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_4()
+    private static Session GetSession3_4(Stats stats)
     {
-        var warmup = GetWarmup1(15, 15, 5);
+        var warmup = GetWarmup1(stats, 15, 15, 5);
 
-        var ex1 = new MultiSnatch(MuscleSquatSnatch, OverheadSquat)
+        var ex1 = new MultiSnatch(stats, MuscleSquatSnatch, OverheadSquat)
         {
             Repeats =
             [
@@ -852,7 +852,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -860,7 +860,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new Accessory(ReversePlank)
+        var ex3 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -872,21 +872,21 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3)
+                new Round(3, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_5()
+    private static Session GetSession3_5(Stats stats)
     {
-        var warmup = GetWarmup5(15, 15, 15);
+        var warmup = GetWarmup5(stats, 15, 15, 15);
 
-        var ex1 = new MultiCleanAndJerk(MuscleClean, FrontSquat, Press)
+        var ex1 = new MultiCleanAndJerk(stats, MuscleClean, FrontSquat, Press)
         {
             Repeats =
             [
@@ -894,7 +894,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -908,7 +908,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(DeficitCleanPull)
+        var ex3 = new CleanAndJerk(stats, DeficitCleanPull)
         {
             Repeats =
             [
@@ -918,7 +918,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new BackSquat(BackSquatPause)
+        var ex4 = new BackSquat(stats, BackSquatPause)
         {
             Repeats =
             [
@@ -927,7 +927,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -939,23 +939,23 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(3, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(3, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_1()
+    private static Session GetSession4_1(Stats stats)
     {
-        var warmup = GetWarmup2(10, 15, 5);
+        var warmup = GetWarmup2(stats, 10, 15, 5);
 
-        var ex1 = new MultiCleanAndJerk(CleanStretching, FrontSquat)
+        var ex1 = new MultiCleanAndJerk(stats, CleanStretching, FrontSquat)
         {
             Repeats =
             [
@@ -963,7 +963,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, HangCleanBelowKnee)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, HangCleanBelowKnee)
         {
             Repeats =
             [
@@ -974,7 +974,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(CleanPullFromBlocks)
+        var ex3 = new CleanAndJerk(stats, CleanPullFromBlocks)
         {
             Repeats =
             [
@@ -984,7 +984,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(FrontSquat)
+        var ex4 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -995,7 +995,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1007,23 +1007,23 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(2, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_2()
+    private static Session GetSession4_2(Stats stats)
     {
-        var warmup = GetWarmup4(10, 15, 8);
+        var warmup = GetWarmup4(stats, 10, 15, 8);
 
-        var ex1 = new Snatch(MuscleSnatch)
+        var ex1 = new Snatch(stats, MuscleSnatch)
         {
             Repeats =
             [
@@ -1031,7 +1031,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(PowerSnatch, ExerciseType.Snatch)
+        var ex2 = new MultiSnatch(stats, PowerSnatch, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1040,7 +1040,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new Accessory(BarbellSquatJump)
+        var ex3 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -1052,21 +1052,21 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3)
+                new Round(2, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_3()
+    private static Session GetSession4_3(Stats stats)
     {
-        var warmup = GetWarmup2(10, 15, 5);
+        var warmup = GetWarmup2(stats, 10, 15, 5);
 
-        var ex1A = new CleanAndJerk(CleanPull)
+        var ex1A = new CleanAndJerk(stats, CleanPull)
         {
             Repeats =
             [
@@ -1074,7 +1074,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex1B = new CleanAndJerk(HipCleanBalance)
+        var ex1B = new CleanAndJerk(stats, HipCleanBalance)
         {
             Repeats =
             [
@@ -1082,7 +1082,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(Clean)
+        var ex2 = new CleanAndJerk(stats, Clean)
         {
             Repeats =
             [
@@ -1099,7 +1099,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(CleanPull)
+        var ex3 = new CleanAndJerk(stats, CleanPull)
         {
             Repeats =
             [
@@ -1109,7 +1109,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new BackSquat(ExerciseType.BackSquat)
+        var ex4 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1125,22 +1125,22 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(2, warmup),
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_4()
+    private static Session GetSession4_4(Stats stats)
     {
-        var warmup = GetWarmup2(10, 15, 5);
+        var warmup = GetWarmup2(stats, 10, 15, 5);
 
-        var ex1A = new MultiCleanAndJerk(MuscleClean, FrontSquat, Press)
+        var ex1A = new MultiCleanAndJerk(stats, MuscleClean, FrontSquat, Press)
         {
             Repeats =
             [
@@ -1148,21 +1148,21 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(FrontSquat, Jerk)
+        var ex2 = new MultiCleanAndJerk(stats, FrontSquat, Jerk)
         {
             Repeats = GetRange(0.5, 0.6, Array(1, 2), 3)
         };
 
-        var ex3 = new CleanAndJerk(GoodMorningSquat)
+        var ex3 = new CleanAndJerk(stats, GoodMorningSquat)
         {
             Repeats =
             [
-                // TODO ??
+                // stats ??
                 new SingleRepeat { Percent = 0.4, Repeats = 5, Sets = 3 }
             ]
         };
 
-        var ex4 = new Accessory(ReversePlank)
+        var ex4 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1174,24 +1174,24 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(ex1A),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(2, warmup),
+                new Round(ex1A),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_5()
+    private static Session GetSession4_5(Stats stats)
     {
-        var warmup = GetWarmup4(10, 15, 8);
+        var warmup = GetWarmup4(stats, 10, 15, 8);
 
-        var ex1 = GetCleanWarmup(5);
+        var ex1 = GetCleanWarmup(stats, 5);
 
-        var ex2 = new MultiCleanAndJerk(CleanFromBlocks, FrontSquat)
+        var ex2 = new MultiCleanAndJerk(stats, CleanFromBlocks, FrontSquat)
         {
             Repeats =
             [
@@ -1205,7 +1205,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -1214,7 +1214,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex4 = new Accessory(ChickenJump)
+        var ex4 = new Accessory(stats, ChickenJump)
         {
             Repeats =
             [
@@ -1226,22 +1226,22 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(2, ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(2, warmup),
+                new Round(2, ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_1()
+    private static Session GetSession5_1(Stats stats)
     {
-        var warmup = GetWarmup1(10, 15);
+        var warmup = GetWarmup1(stats, 10, 15);
 
-        var ex1 = new MultiCleanAndJerk(MuscleClean, FrontSquat, Press)
+        var ex1 = new MultiCleanAndJerk(stats, MuscleClean, FrontSquat, Press)
         {
             Repeats =
             [
@@ -1249,7 +1249,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -1262,7 +1262,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1276,21 +1276,21 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3)
+                new Round(2, warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_2()
+    private static Session GetSession5_2(Stats stats)
     {
-        var warmup = GetWarmup3(10, 5);
+        var warmup = GetWarmup3(stats, 10, 5);
 
-        var ex1 = new MultiSnatch(MuscleSquatSnatch, OverheadSquat)
+        var ex1 = new MultiSnatch(stats, MuscleSquatSnatch, OverheadSquat)
         {
             Repeats =
             [
@@ -1298,7 +1298,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1310,20 +1310,20 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(ex1),
-                new(ex2)
+                new Round(2, warmup),
+                new Round(ex1),
+                new Round(ex2)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_3()
+    private static Session GetSession5_3(Stats stats)
     {
-        var warmup = GetWarmup1(10, 15);
+        var warmup = GetWarmup1(stats, 10, 15);
 
-        var ex1A = new CleanAndJerk(HipMuscleClean)
+        var ex1A = new CleanAndJerk(stats, HipMuscleClean)
         {
             Repeats =
             [
@@ -1331,7 +1331,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex1B = new CleanAndJerk(HipCleanBalance)
+        var ex1B = new CleanAndJerk(stats, HipCleanBalance)
         {
             Repeats =
             [
@@ -1339,7 +1339,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(Clean)
+        var ex2 = new CleanAndJerk(stats, Clean)
         {
             Repeats =
             [
@@ -1348,7 +1348,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1361,23 +1361,23 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(2, ex1A, ex1B),
-                new(ex2),
-                new(ex3)
+                new Round(2, warmup),
+                new Round(2, ex1A, ex1B),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_5()
+    private static Session GetSession5_5(Stats stats)
     {
-        var warmup = GetWarmup3(10, 5);
+        var warmup = GetWarmup3(stats, 10, 5);
 
-        var ex1 = GetCleanWarmup(5);
+        var ex1 = GetCleanWarmup(stats, 5);
 
-        var ex2 = new CleanAndJerk(Clean)
+        var ex2 = new CleanAndJerk(stats, Clean)
         {
             Repeats =
             [
@@ -1399,18 +1399,18 @@ public class CleanProgram : BackTechniqueProgram
         {
             Rounds =
             [
-                new(2, warmup),
-                new(2, ex1),
-                new(ex2)
+                new Round(2, warmup),
+                new Round(2, ex1),
+                new Round(ex2)
             ]
         };
 
         return session;
     }
 
-    private static BaseExercise[] GetCleanWarmup(int repeats)
+    private static BaseExercise[] GetCleanWarmup(Stats stats, int repeats)
     {
-        var a = new Accessory(ElbowsRotation)
+        var a = new Accessory(stats, ElbowsRotation)
         {
             Repeats =
             [
@@ -1418,7 +1418,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var b = new Accessory(HipCleanBalance)
+        var b = new Accessory(stats, HipCleanBalance)
         {
             Repeats =
             [
@@ -1426,7 +1426,7 @@ public class CleanProgram : BackTechniqueProgram
             ]
         };
 
-        var c = new Accessory(HipCleanBalance)
+        var c = new Accessory(stats, HipCleanBalance)
         {
             Repeats =
             [

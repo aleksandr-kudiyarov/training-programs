@@ -1,10 +1,9 @@
 using Kudiyarov.TrainingPrograms.Entities.Enums;
 
-namespace Kudiyarov.TrainingPrograms.Entities.Requests;
+namespace Kudiyarov.TrainingPrograms.Web.Models;
 
-public record SessionRequest
+public record ApiSessionRequest
 {
     public required ProgramType ProgramType { get; init; }
     public required int Day { get; init; }
-    public required Stats Stats { get; init; }
 }

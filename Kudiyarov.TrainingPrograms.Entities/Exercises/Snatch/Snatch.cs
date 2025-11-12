@@ -4,7 +4,9 @@ namespace Kudiyarov.TrainingPrograms.Entities.Exercises.Snatch;
 
 public sealed class Snatch : BaseSingleExercise
 {
-    public Snatch(ExerciseType type) : base(Stats.Snatch, type)
+    public Snatch(
+        Stats stats,
+        ExerciseType type) : base(stats.Snatch, type)
     {
     }
 

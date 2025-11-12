@@ -6,8 +6,8 @@ namespace Kudiyarov.TrainingPrograms.Programs;
 
 public abstract class TrainingProgram
 {
-    protected static readonly Func<Session> EmptySession;
-    private readonly Lazy<IReadOnlyList<Func<Session>>> _sessions;
+    protected static readonly Func<Stats, Session> EmptySession;
+    private readonly Lazy<IReadOnlyList<Func<Stats, Session>>> _sessions;
 
     static TrainingProgram()
     {
@@ -16,21 +16,21 @@ public abstract class TrainingProgram
 
     protected TrainingProgram()
     {
-        _sessions = new Lazy<IReadOnlyList<Func<Session>>>(GetSessions);
+        _sessions = new Lazy<IReadOnlyList<Func<Stats, Session>>>(GetSessions);
     }
 
-    private IReadOnlyList<Func<Session>> Sessions => _sessions.Value;
+    private IReadOnlyList<Func<Stats, Session>> Sessions => _sessions.Value;
 
     public abstract ProgramType Type { get; }
     public abstract string Name { get; }
     public int Days => Sessions.Count;
-    protected abstract IReadOnlyList<Func<Session>> GetSessions();
+    protected abstract IReadOnlyList<Func<Stats, Session>> GetSessions();
 
-    public Session Get(int day)
+    public Session Get(int day, Stats stats)
     {
         var index = day - 1;
         var func = Sessions[index];
-        var result = func();
+        var result = func(stats);
         result.Day = day;
         return result;
     }
@@ -40,7 +40,7 @@ public abstract class TrainingProgram
         return value;
     }
 
-    private static Session GetEmptySession()
+    private static Session GetEmptySession(Stats stats)
     {
         return new Session();
     }

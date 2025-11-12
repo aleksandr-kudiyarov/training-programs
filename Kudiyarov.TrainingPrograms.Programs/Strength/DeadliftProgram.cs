@@ -13,10 +13,10 @@ public sealed class DeadliftProgram : TrainingProgram
     public override ProgramType Type => ProgramType.Deadlift;
     public override string Name => "Deadlift Program";
 
-    protected override IReadOnlyList<Func<Session>> GetSessions()
+    protected override IReadOnlyList<Func<Stats, Session>> GetSessions()
     {
-        var sessions = new[]
-        {
+        Func<Stats, Session>[] sessions =
+        [
             GetSession1_1, GetSession1_2, GetSession1_3,
             GetSession2_1, GetSession2_2, GetSession2_3,
             GetSession3_1, GetSession3_2, GetSession3_3,
@@ -30,14 +30,14 @@ public sealed class DeadliftProgram : TrainingProgram
             GetSession11_1, GetSession11_2, GetSession11_3,
             GetSession12_1, EmptySession, GetSession12_3,
             GetRpSession
-        };
+        ];
 
         return sessions;
     }
 
-    private static Session GetSession1_1()
+    private static Session GetSession1_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -45,7 +45,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(PowerSnatch, SnatchBalance, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, PowerSnatch, SnatchBalance, OverheadSquat)
         {
             Repeats =
             [
@@ -53,7 +53,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -64,7 +64,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(GakkSquat)
+        var ex4 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -72,7 +72,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -84,20 +84,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_2()
+    private static Session GetSession1_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -105,7 +105,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(BoxJump)
+        var ex2 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -113,7 +113,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -122,7 +122,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -131,7 +131,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(FrontSquat)
+        var ex5 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -146,20 +146,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession1_3()
+    private static Session GetSession1_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -167,7 +167,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(DeficitClean)
+        var ex2 = new CleanAndJerk(stats, DeficitClean)
         {
             Repeats =
             [
@@ -175,7 +175,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(DeficitDeadlift)
+        var ex3 = new Deadlift(stats, DeficitDeadlift)
         {
             Repeats =
             [
@@ -185,7 +185,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(FrontSquat, PushPress)
+        var ex4 = new MultiCleanAndJerk(stats, FrontSquat, PushPress)
         {
             Repeats =
             [
@@ -193,7 +193,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -205,20 +205,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_1()
+    private static Session GetSession2_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -226,7 +226,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(PowerClean, PowerCleanBelowKnee, PushPress)
+        var ex2 = new MultiCleanAndJerk(stats, PowerClean, PowerCleanBelowKnee, PushPress)
         {
             Repeats =
             [
@@ -234,7 +234,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -245,7 +245,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(GakkSquat)
+        var ex4 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -253,7 +253,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -265,20 +265,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_2()
+    private static Session GetSession2_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -286,7 +286,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(BoxJump)
+        var ex2 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -294,7 +294,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -303,7 +303,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -312,7 +312,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new BackSquat(ExerciseType.BackSquat)
+        var ex5 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -327,20 +327,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession2_3()
+    private static Session GetSession2_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -348,7 +348,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(DeficitPowerSnatch, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, DeficitPowerSnatch, OverheadSquat)
         {
             Repeats =
             [
@@ -356,7 +356,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(DeficitDeadlift)
+        var ex3 = new Deadlift(stats, DeficitDeadlift)
         {
             Repeats =
             [
@@ -366,7 +366,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Snatch(SotsPress)
+        var ex4 = new Snatch(stats, SotsPress)
         {
             Repeats =
             [
@@ -374,7 +374,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -386,20 +386,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_1()
+    private static Session GetSession3_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -407,12 +407,12 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(MuscleSquatSnatch)
+        var ex2 = new Snatch(stats, MuscleSquatSnatch)
         {
             Repeats = GetRange(0.4, 0.5, 4, 4)
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -424,7 +424,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(GakkSquat)
+        var ex4 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -432,7 +432,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -444,20 +444,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_2()
+    private static Session GetSession3_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -465,7 +465,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(BoxJump)
+        var ex2 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -473,7 +473,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -483,7 +483,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -493,7 +493,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(FrontSquat)
+        var ex5 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -509,20 +509,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession3_3()
+    private static Session GetSession3_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -530,12 +530,12 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(GoodMorningSquat)
+        var ex2 = new CleanAndJerk(stats, GoodMorningSquat)
         {
             Repeats = GetRange(0.4, 0.5, 6, 3)
         };
 
-        var ex3 = new Deadlift(DeficitDeadlift)
+        var ex3 = new Deadlift(stats, DeficitDeadlift)
         {
             Repeats =
             [
@@ -546,7 +546,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(FrontSquat, PushPress)
+        var ex4 = new MultiCleanAndJerk(stats, FrontSquat, PushPress)
         {
             Repeats =
             [
@@ -554,7 +554,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -566,20 +566,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_1()
+    private static Session GetSession4_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -587,7 +587,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, HangCleanBelowKnee)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, HangCleanBelowKnee)
         {
             Repeats =
             [
@@ -596,7 +596,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -607,7 +607,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(GakkSquat)
+        var ex4 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -615,7 +615,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -627,20 +627,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_2()
+    private static Session GetSession4_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -648,7 +648,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(BoxJump)
+        var ex2 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -656,7 +656,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -664,7 +664,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -673,7 +673,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(FrontSquat)
+        var ex5 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -689,20 +689,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession4_3()
+    private static Session GetSession4_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -710,7 +710,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(DeficitPowerSnatch, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, DeficitPowerSnatch, OverheadSquat)
         {
             Repeats =
             [
@@ -718,7 +718,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(DeficitDeadlift)
+        var ex3 = new Deadlift(stats, DeficitDeadlift)
         {
             Repeats =
             [
@@ -730,7 +730,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Snatch(SotsPress)
+        var ex4 = new Snatch(stats, SotsPress)
         {
             Repeats =
             [
@@ -738,7 +738,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -750,20 +750,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_1()
+    private static Session GetSession5_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -771,7 +771,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(PowerSnatch, SnatchBalance, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, PowerSnatch, SnatchBalance, OverheadSquat)
         {
             Repeats =
             [
@@ -779,7 +779,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -793,7 +793,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BarbellSquatJump)
+        var ex4 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -801,7 +801,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -813,20 +813,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_2()
+    private static Session GetSession5_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -834,7 +834,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(GakkSquat)
+        var ex2 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -842,7 +842,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -852,7 +852,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -863,7 +863,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new BackSquat(ExerciseType.BackSquat)
+        var ex5 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -878,20 +878,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession5_3()
+    private static Session GetSession5_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -899,7 +899,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(DeficitClean)
+        var ex2 = new CleanAndJerk(stats, DeficitClean)
         {
             Repeats =
             [
@@ -908,7 +908,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(DeficitDeadlift)
+        var ex3 = new Deadlift(stats, DeficitDeadlift)
         {
             Repeats =
             [
@@ -920,7 +920,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(PushPress, PowerJerk)
+        var ex4 = new MultiCleanAndJerk(stats, PushPress, PowerJerk)
         {
             Repeats =
             [
@@ -929,7 +929,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -941,20 +941,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession6_1()
+    private static Session GetSession6_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -962,7 +962,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, HangCleanBelowKnee)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, HangCleanBelowKnee)
         {
             Repeats =
             [
@@ -972,7 +972,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -984,7 +984,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BoxJump)
+        var ex4 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -992,7 +992,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1004,20 +1004,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession6_2()
+    private static Session GetSession6_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1025,7 +1025,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(GakkSquat)
+        var ex2 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1033,7 +1033,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1044,7 +1044,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -1052,7 +1052,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(FrontSquat)
+        var ex5 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -1068,20 +1068,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession6_3()
+    private static Session GetSession6_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1089,7 +1089,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(DeficitPowerSnatch, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, DeficitPowerSnatch, OverheadSquat)
         {
             Repeats =
             [
@@ -1099,7 +1099,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(DeficitDeadlift)
+        var ex3 = new Deadlift(stats, DeficitDeadlift)
         {
             Repeats =
             [
@@ -1111,7 +1111,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Snatch(SotsPress)
+        var ex4 = new Snatch(stats, SotsPress)
         {
             Repeats =
             [
@@ -1119,7 +1119,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1131,20 +1131,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession7_1()
+    private static Session GetSession7_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1152,7 +1152,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(PowerSnatch, HipSnatch)
+        var ex2 = new MultiSnatch(stats, PowerSnatch, HipSnatch)
         {
             Repeats =
             [
@@ -1160,7 +1160,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -1173,7 +1173,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BarbellSquatJump)
+        var ex4 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -1181,7 +1181,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5A = new Accessory(Plank)
+        var ex5A = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1189,7 +1189,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5B = new Accessory(ReversePlank)
+        var ex5B = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1201,20 +1201,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(2, ex5A, ex5B)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(2, ex5A, ex5B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession7_2()
+    private static Session GetSession7_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1222,7 +1222,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(GakkSquat)
+        var ex2 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1230,7 +1230,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1240,7 +1240,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -1249,7 +1249,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new BackSquat(ExerciseType.BackSquat)
+        var ex5 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1264,20 +1264,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession7_3()
+    private static Session GetSession7_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1285,7 +1285,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(CleanFromBlocks, FrontSquat)
+        var ex2 = new MultiCleanAndJerk(stats, CleanFromBlocks, FrontSquat)
         {
             Repeats =
             [
@@ -1294,7 +1294,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(DeadliftFromBlocks)
+        var ex3 = new Deadlift(stats, DeadliftFromBlocks)
         {
             Repeats =
             [
@@ -1306,7 +1306,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(PushPress)
+        var ex4 = new CleanAndJerk(stats, PushPress)
         {
             Repeats =
             [
@@ -1315,7 +1315,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5A = new Accessory(Plank)
+        var ex5A = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1323,7 +1323,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5B = new Accessory(ReversePlank)
+        var ex5B = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1335,20 +1335,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(2, ex5A, ex5B)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(2, ex5A, ex5B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession8_1()
+    private static Session GetSession8_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1356,7 +1356,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(PowerClean, PowerCleanBelowKnee)
+        var ex2 = new MultiCleanAndJerk(stats, PowerClean, PowerCleanBelowKnee)
         {
             Repeats =
             [
@@ -1365,7 +1365,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -1378,7 +1378,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BoxJump)
+        var ex4 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1386,7 +1386,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5A = new Accessory(Plank)
+        var ex5A = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1394,7 +1394,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5B = new Accessory(ReversePlank)
+        var ex5B = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1406,20 +1406,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(2, ex5A, ex5B)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(2, ex5A, ex5B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession8_2()
+    private static Session GetSession8_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1427,7 +1427,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(GakkSquat)
+        var ex2 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1435,7 +1435,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1446,7 +1446,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -1454,7 +1454,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new CleanAndJerk(FrontSquat)
+        var ex5 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -1470,20 +1470,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession8_3()
+    private static Session GetSession8_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1491,7 +1491,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(SnatchFromBlocks)
+        var ex2 = new Snatch(stats, SnatchFromBlocks)
         {
             Repeats =
             [
@@ -1500,7 +1500,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -1513,7 +1513,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new CleanAndJerk(GoodMorningSquat)
+        var ex4 = new CleanAndJerk(stats, GoodMorningSquat)
         {
             Repeats =
             [
@@ -1521,7 +1521,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5A = new Accessory(Plank)
+        var ex5A = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1529,7 +1529,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5B = new Accessory(ReversePlank)
+        var ex5B = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1541,20 +1541,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(2, ex5A, ex5B)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(2, ex5A, ex5B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession9_1()
+    private static Session GetSession9_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1562,7 +1562,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(MuscleSquatSnatch)
+        var ex2 = new Snatch(stats, MuscleSquatSnatch)
         {
             Repeats =
             [
@@ -1570,7 +1570,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -1581,7 +1581,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BarbellSquatJump)
+        var ex4 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -1589,7 +1589,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5A = new Accessory(Plank)
+        var ex5A = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1597,7 +1597,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5B = new Accessory(ReversePlank)
+        var ex5B = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1609,20 +1609,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(2, ex5A, ex5B)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(2, ex5A, ex5B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession9_2()
+    private static Session GetSession9_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1630,7 +1630,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Accessory(GakkSquat)
+        var ex2 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -1638,7 +1638,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Snatch(ExerciseType.Snatch)
+        var ex3 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1646,7 +1646,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex4 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -1657,7 +1657,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new BackSquat(ExerciseType.BackSquat)
+        var ex5 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1673,20 +1673,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession9_3()
+    private static Session GetSession9_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1694,7 +1694,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(CleanFromBlocks)
+        var ex2 = new CleanAndJerk(stats, CleanFromBlocks)
         {
             Repeats =
             [
@@ -1703,7 +1703,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(DeadliftFromBlocks)
+        var ex3 = new Deadlift(stats, DeadliftFromBlocks)
         {
             Repeats =
             [
@@ -1715,7 +1715,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new MultiCleanAndJerk(PushPress, PowerJerk)
+        var ex4 = new MultiCleanAndJerk(stats, PushPress, PowerJerk)
         {
             Repeats =
             [
@@ -1724,7 +1724,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5A = new Accessory(Plank)
+        var ex5A = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1732,7 +1732,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5B = new Accessory(ReversePlank)
+        var ex5B = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1744,20 +1744,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(2, ex5A, ex5B)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(2, ex5A, ex5B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession10_1()
+    private static Session GetSession10_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1765,7 +1765,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(PowerClean)
+        var ex2 = new CleanAndJerk(stats, PowerClean)
         {
             Repeats =
             [
@@ -1775,7 +1775,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -1786,7 +1786,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BoxJump)
+        var ex4 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1794,7 +1794,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1806,20 +1806,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession10_2()
+    private static Session GetSession10_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1827,7 +1827,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1835,7 +1835,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex3 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -1847,18 +1847,18 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession10_3()
+    private static Session GetSession10_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1866,7 +1866,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(PowerSnatch, ExerciseType.Snatch)
+        var ex2 = new MultiSnatch(stats, PowerSnatch, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1876,7 +1876,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -1889,7 +1889,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BoxJump)
+        var ex4 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1897,7 +1897,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(ReversePlank)
+        var ex5 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -1909,20 +1909,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession11_1()
+    private static Session GetSession11_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1930,7 +1930,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(PowerSnatch)
+        var ex2 = new Snatch(stats, PowerSnatch)
         {
             Repeats =
             [
@@ -1939,7 +1939,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new Deadlift(ExerciseType.Deadlift)
+        var ex3 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -1950,7 +1950,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(BoxJump)
+        var ex4 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -1958,7 +1958,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -1970,20 +1970,20 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession11_2()
+    private static Session GetSession11_2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -1991,7 +1991,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(ExerciseType.Snatch)
+        var ex2 = new Snatch(stats, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -1999,7 +1999,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex3 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -2011,18 +2011,18 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession11_3()
+    private static Session GetSession11_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -2030,7 +2030,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(Clean, FrontSquat)
+        var ex2 = new MultiCleanAndJerk(stats, Clean, FrontSquat)
         {
             Repeats =
             [
@@ -2039,7 +2039,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -2050,7 +2050,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex4 = new Accessory(ReversePlank)
+        var ex4 = new Accessory(stats, ReversePlank)
         {
             Repeats =
             [
@@ -2062,19 +2062,19 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession12_1()
+    private static Session GetSession12_1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -2082,7 +2082,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(GoodMorning)
+        var ex2 = new CleanAndJerk(stats, GoodMorning)
         {
             Repeats =
             [
@@ -2094,17 +2094,17 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2)
+                new Round(ex1),
+                new Round(ex2)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession12_3()
+    private static Session GetSession12_3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -2112,7 +2112,7 @@ public sealed class DeadliftProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new BackSquat(ExerciseType.BackSquat)
+        var ex2 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -2125,17 +2125,17 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2)
+                new Round(ex1),
+                new Round(ex2)
             ]
         };
 
         return session;
     }
 
-    private static Session GetRpSession()
+    private static Session GetRpSession(Stats stats)
     {
-        var ex1 = new Deadlift(ExerciseType.Deadlift)
+        var ex1 = new Deadlift(stats, ExerciseType.Deadlift)
         {
             Repeats =
             [
@@ -2155,7 +2155,7 @@ public sealed class DeadliftProgram : TrainingProgram
         {
             Rounds =
             [
-                new(ex1)
+                new Round(ex1)
             ]
         };
 

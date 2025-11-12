@@ -13,7 +13,7 @@ public sealed partial class CompetitionProgram : TrainingProgram
     public override ProgramType Type => ProgramType.Competition;
     public override string Name => "Competition Program";
 
-    protected override IReadOnlyList<Func<Session>> GetSessions()
+    protected override IReadOnlyList<Func<Stats, Session>> GetSessions()
     {
         var sessions = new[]
         {
@@ -36,9 +36,9 @@ public sealed partial class CompetitionProgram : TrainingProgram
         return sessions;
     }
 
-    private static BaseExercise[] GetSnatchWarmUp1()
+    private static BaseExercise[] GetSnatchWarmUp1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -46,7 +46,7 @@ public sealed partial class CompetitionProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(SnatchPushPress, SnatchBalance, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, SnatchPushPress, SnatchBalance, OverheadSquat)
         {
             Repeats =
             [
@@ -58,9 +58,9 @@ public sealed partial class CompetitionProgram : TrainingProgram
         return result;
     }
 
-    private static BaseExercise[] GetSnatchWarmUp2()
+    private static BaseExercise[] GetSnatchWarmUp2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -68,7 +68,7 @@ public sealed partial class CompetitionProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(SnatchPullFromBlocks)
+        var ex2 = new Snatch(stats, SnatchPullFromBlocks)
         {
             Repeats =
             [
@@ -80,9 +80,9 @@ public sealed partial class CompetitionProgram : TrainingProgram
         return result;
     }
 
-    private static BaseExercise[] GetSnatchWarmUp3()
+    private static BaseExercise[] GetSnatchWarmUp3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -90,7 +90,7 @@ public sealed partial class CompetitionProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new Snatch(SnatchOnPlates)
+        var ex2 = new Snatch(stats, SnatchOnPlates)
         {
             Repeats =
             [
@@ -102,9 +102,9 @@ public sealed partial class CompetitionProgram : TrainingProgram
         return result;
     }
 
-    private static BaseExercise[] GetCleanAndJerkWarmUp1()
+    private static BaseExercise[] GetCleanAndJerkWarmUp1(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -112,7 +112,7 @@ public sealed partial class CompetitionProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(FrontSquat)
+        var ex2 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -124,9 +124,9 @@ public sealed partial class CompetitionProgram : TrainingProgram
         return result;
     }
 
-    private static BaseExercise[] GetCleanAndJerkWarmUp2()
+    private static BaseExercise[] GetCleanAndJerkWarmUp2(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -134,7 +134,7 @@ public sealed partial class CompetitionProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(CleanOnPlates)
+        var ex2 = new CleanAndJerk(stats, CleanOnPlates)
         {
             Repeats =
             [
@@ -146,9 +146,9 @@ public sealed partial class CompetitionProgram : TrainingProgram
         return result;
     }
 
-    private static BaseExercise[] GetCleanAndJerkWarmUp3()
+    private static BaseExercise[] GetCleanAndJerkWarmUp3(Stats stats)
     {
-        var ex1 = new Accessory(Hyperextension)
+        var ex1 = new Accessory(stats, Hyperextension)
         {
             Repeats =
             [
@@ -156,7 +156,7 @@ public sealed partial class CompetitionProgram : TrainingProgram
             ]
         };
 
-        var ex2 = new MultiCleanAndJerk(MuscleClean, FrontSquat, Press)
+        var ex2 = new MultiCleanAndJerk(stats, MuscleClean, FrontSquat, Press)
         {
             Repeats =
             [

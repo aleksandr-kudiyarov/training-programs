@@ -1,6 +1,8 @@
 using Kudiyarov.TrainingPrograms.Bll.Interfaces;
+using Kudiyarov.TrainingPrograms.Entities;
 using Kudiyarov.TrainingPrograms.Entities.Enums;
 using Kudiyarov.TrainingPrograms.Entities.Requests;
+using Kudiyarov.TrainingPrograms.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kudiyarov.TrainingPrograms.Web.Controllers;
@@ -26,8 +28,15 @@ public class HomeController : Controller
         return View(result);
     }
 
-    public IActionResult Session(SessionRequest request)
+    public IActionResult Session(ApiSessionRequest apiRequest)
     {
+        var request = new SessionRequest
+        {
+            ProgramType = apiRequest.ProgramType,
+            Day = apiRequest.Day,
+            Stats = new Stats()
+        };
+        
         var result = _logic.Get(request);
         return View(result);
     }

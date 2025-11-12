@@ -47,7 +47,7 @@ public class ProgramRepository : IProgramRepository
     public Session Get(SessionRequest request)
     {
         var program = _repository[request.ProgramType];
-        var session = program.Get(request.Day);
+        var session = program.Get(request.Day, request.Stats);
         return session;
     }
 }

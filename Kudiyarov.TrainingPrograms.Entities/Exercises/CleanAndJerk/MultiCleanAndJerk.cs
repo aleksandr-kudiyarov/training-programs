@@ -4,7 +4,9 @@ namespace Kudiyarov.TrainingPrograms.Entities.Exercises.CleanAndJerk;
 
 public sealed class MultiCleanAndJerk : BaseMultiExercise
 {
-    public MultiCleanAndJerk(params ExerciseType[] types) : base(Stats.CleanAndJerk, types)
+    public MultiCleanAndJerk(
+        Stats stats,
+        params ExerciseType[] types) : base(stats.CleanAndJerk, types)
     {
     }
 

@@ -1,4 +1,6 @@
+@using Kudiyarov.TrainingPrograms.Entities
 @using Kudiyarov.TrainingPrograms.Entities.Requests
+@using Kudiyarov.TrainingPrograms.Web.Models
 @model Kudiyarov.TrainingPrograms.Programs.TrainingProgram
 
 @{
@@ -8,7 +10,7 @@
 <h3>@Model.Name</h3>
 @for (var day = 1; day <= Model.Days; day++)
 {
-    var request = new SessionRequest
+    var request = new ApiSessionRequest
     {
         ProgramType = Model.Type,
         Day = day

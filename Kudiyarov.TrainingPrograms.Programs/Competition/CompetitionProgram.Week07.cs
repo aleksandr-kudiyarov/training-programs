@@ -10,11 +10,11 @@ namespace Kudiyarov.TrainingPrograms.Programs.Competition;
 
 public sealed partial class CompetitionProgram
 {
-    private static Session GetSession7_1()
+    private static Session GetSession7_1(Stats stats)
     {
-        var warmup = GetSnatchWarmUp1();
+        var warmup = GetSnatchWarmUp1(stats);
 
-        var ex1 = new Snatch(SnatchFromBlocks)
+        var ex1 = new Snatch(stats, SnatchFromBlocks)
         {
             Repeats =
             [
@@ -30,7 +30,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex2 = new Snatch(SnatchPullFromBlocks)
+        var ex2 = new Snatch(stats, SnatchPullFromBlocks)
         {
             Repeats =
             [
@@ -42,7 +42,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -53,7 +53,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex4 = new Accessory(BoxJump)
+        var ex4 = new Accessory(stats, BoxJump)
         {
             Repeats =
             [
@@ -61,7 +61,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex5 = new Accessory(Plank)
+        var ex5 = new Accessory(stats, Plank)
         {
             Repeats =
             [
@@ -73,21 +73,21 @@ public sealed partial class CompetitionProgram
         {
             Rounds =
             [
-                new(warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(ex5)
+                new Round(warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(ex5)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession7_2()
+    private static Session GetSession7_2(Stats stats)
     {
-        var ex1 = new CleanAndJerk(GoodMorning)
+        var ex1 = new CleanAndJerk(stats, GoodMorning)
         {
             Repeats =
             [
@@ -95,7 +95,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(Clean)
+        var ex2 = new CleanAndJerk(stats, Clean)
         {
             Repeats =
             [
@@ -109,7 +109,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(CleanPullSlowlyDown)
+        var ex3 = new CleanAndJerk(stats, CleanPullSlowlyDown)
         {
             Repeats =
             [
@@ -122,20 +122,20 @@ public sealed partial class CompetitionProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession7_3()
+    private static Session GetSession7_3(Stats stats)
     {
-        var warmup = GetSnatchWarmUp2();
+        var warmup = GetSnatchWarmUp2(stats);
 
-        var ex1 = new Snatch(DeficitSnatch)
+        var ex1 = new Snatch(stats, DeficitSnatch)
         {
             Repeats =
             [
@@ -148,7 +148,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(Jerk)
+        var ex2 = new CleanAndJerk(stats, Jerk)
         {
             Repeats =
             [
@@ -164,7 +164,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex3 = new BackSquat(ExerciseType.BackSquat)
+        var ex3 = new BackSquat(stats, ExerciseType.BackSquat)
         {
             Repeats =
             [
@@ -176,7 +176,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex4 = new Accessory(GakkSquat)
+        var ex4 = new Accessory(stats, GakkSquat)
         {
             Repeats =
             [
@@ -184,7 +184,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex5A = new Accessory(WristFlexion)
+        var ex5A = new Accessory(stats, WristFlexion)
         {
             Repeats =
             [
@@ -192,7 +192,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex5B = new Accessory(WristExtension)
+        var ex5B = new Accessory(stats, WristExtension)
         {
             Repeats =
             [
@@ -204,23 +204,23 @@ public sealed partial class CompetitionProgram
         {
             Rounds =
             [
-                new(warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4),
-                new(3, ex5A, ex5B)
+                new Round(warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4),
+                new Round(3, ex5A, ex5B)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession7_4()
+    private static Session GetSession7_4(Stats stats)
     {
-        var warmup = GetCleanAndJerkWarmUp1();
+        var warmup = GetCleanAndJerkWarmUp1(stats);
 
-        var ex1 = new MultiCleanAndJerk(Clean, Jerk)
+        var ex1 = new MultiCleanAndJerk(stats, Clean, Jerk)
         {
             Repeats =
             [
@@ -236,7 +236,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex2 = new CleanAndJerk(CleanPull)
+        var ex2 = new CleanAndJerk(stats, CleanPull)
         {
             Repeats =
             [
@@ -246,7 +246,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex3 = new Accessory(PressWithRubberBand)
+        var ex3 = new Accessory(stats, PressWithRubberBand)
         {
             Repeats =
             [
@@ -254,7 +254,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex4 = new Accessory(BarbellSquatJump)
+        var ex4 = new Accessory(stats, BarbellSquatJump)
         {
             Repeats =
             [
@@ -266,20 +266,20 @@ public sealed partial class CompetitionProgram
         {
             Rounds =
             [
-                new(warmup),
-                new(ex1),
-                new(ex2),
-                new(ex3),
-                new(ex4)
+                new Round(warmup),
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3),
+                new Round(ex4)
             ]
         };
 
         return session;
     }
 
-    private static Session GetSession7_5()
+    private static Session GetSession7_5(Stats stats)
     {
-        var ex1 = new MultiSnatch(PowerSnatch, ExerciseType.Snatch)
+        var ex1 = new MultiSnatch(stats, PowerSnatch, ExerciseType.Snatch)
         {
             Repeats =
             [
@@ -290,7 +290,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex2 = new MultiSnatch(SnatchPushPress, OverheadSquat)
+        var ex2 = new MultiSnatch(stats, SnatchPushPress, OverheadSquat)
         {
             Repeats =
             [
@@ -306,7 +306,7 @@ public sealed partial class CompetitionProgram
             ]
         };
 
-        var ex3 = new CleanAndJerk(FrontSquat)
+        var ex3 = new CleanAndJerk(stats, FrontSquat)
         {
             Repeats =
             [
@@ -320,9 +320,9 @@ public sealed partial class CompetitionProgram
         {
             Rounds =
             [
-                new(ex1),
-                new(ex2),
-                new(ex3)
+                new Round(ex1),
+                new Round(ex2),
+                new Round(ex3)
             ]
         };
 

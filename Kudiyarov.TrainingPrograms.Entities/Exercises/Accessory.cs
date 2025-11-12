@@ -4,7 +4,9 @@ namespace Kudiyarov.TrainingPrograms.Entities.Exercises;
 
 public sealed class Accessory : BaseSingleExercise
 {
-    public Accessory(ExerciseType type) : base(GetWeight(type), type)
+    public Accessory(
+        Stats stats,
+        ExerciseType type) : base(GetWeight(stats, type), type)
     {
     }
 
@@ -14,53 +16,55 @@ public sealed class Accessory : BaseSingleExercise
         _ => EquipmentType.Barbell
     };
 
-    private static double? GetWeight(ExerciseType type)
+    private static double? GetWeight(
+        Stats stats,
+        ExerciseType type)
     {
         return type switch
         {
             // Back Squat
-            ExerciseType.BackSplitSquat => Stats.BackSplitSquat,
+            ExerciseType.BackSplitSquat => stats.BackSplitSquat,
 
             // Lunges
-            ExerciseType.BackLunges => Stats.Lunges,
-            ExerciseType.ForwardLunges => Stats.Lunges,
+            ExerciseType.BackLunges => stats.Lunges,
+            ExerciseType.ForwardLunges => stats.Lunges,
 
             // Back
-            ExerciseType.LateralPull => Stats.LateralPull,
-            ExerciseType.LateralPullReverseGrip => Stats.LateralPull,
+            ExerciseType.LateralPull => stats.LateralPull,
+            ExerciseType.LateralPullReverseGrip => stats.LateralPull,
 
             // Press
-            ExerciseType.Press => Stats.Press,
-            ExerciseType.SnatchPress => Stats.Press,
-            ExerciseType.AsymmetryPress => Stats.Press,
-            ExerciseType.OverheadSplitSquat => Stats.Press,
-            ExerciseType.PressInSitPosition => Stats.Press,
-            ExerciseType.PressInSplitPosition => Stats.Press,
-            ExerciseType.PressWithRubberBand => Stats.Press,
-            ExerciseType.SittingPress => Stats.SnatchPress,
-            ExerciseType.SnatchPressWithRubberBand => Stats.SnatchPress,
-            ExerciseType.SotsPress => Stats.SnatchPress,
+            ExerciseType.Press => stats.Press,
+            ExerciseType.SnatchPress => stats.Press,
+            ExerciseType.AsymmetryPress => stats.Press,
+            ExerciseType.OverheadSplitSquat => stats.Press,
+            ExerciseType.PressInSitPosition => stats.Press,
+            ExerciseType.PressInSplitPosition => stats.Press,
+            ExerciseType.PressWithRubberBand => stats.Press,
+            ExerciseType.SittingPress => stats.SnatchPress,
+            ExerciseType.SnatchPressWithRubberBand => stats.SnatchPress,
+            ExerciseType.SotsPress => stats.SnatchPress,
 
             // Bench Press
-            ExerciseType.BenchPress => Stats.BenchPress,
-            ExerciseType.AsymmetryBenchPress => Stats.BenchPress,
-            ExerciseType.InclineBenchPress => Stats.InclineBenchPress,
-            ExerciseType.InclineBenchPressNarrowGrip => Stats.BackSquat * 0.54,
-            ExerciseType.InclineBenchPressWideGrip => Stats.BackSquat * 0.54,
-            ExerciseType.DeclineBenchPress => Stats.BenchPress * 1.1,
-            ExerciseType.SeatedBenchPress => Stats.BenchPress,
-            ExerciseType.DiscPress => Stats.Press * 0.45,
+            ExerciseType.BenchPress => stats.BenchPress,
+            ExerciseType.AsymmetryBenchPress => stats.BenchPress,
+            ExerciseType.InclineBenchPress => stats.InclineBenchPress,
+            ExerciseType.InclineBenchPressNarrowGrip => stats.BackSquat * 0.54,
+            ExerciseType.InclineBenchPressWideGrip => stats.BackSquat * 0.54,
+            ExerciseType.DeclineBenchPress => stats.BenchPress * 1.1,
+            ExerciseType.SeatedBenchPress => stats.BenchPress,
+            ExerciseType.DiscPress => stats.Press * 0.45,
 
             // Hands
-            ExerciseType.BicepsCurl => Stats.BicepsCurl,
-            ExerciseType.DiscHammerCurls => Stats.BicepsCurl,
-            ExerciseType.BicepsCurlReverseGrip => Stats.BicepsCurlRg,
-            ExerciseType.FrenchPress => Stats.FrenchPress,
-            ExerciseType.DumbbellFrenchPress => Stats.FrenchPress * 0.45,
+            ExerciseType.BicepsCurl => stats.BicepsCurl,
+            ExerciseType.DiscHammerCurls => stats.BicepsCurl,
+            ExerciseType.BicepsCurlReverseGrip => stats.BicepsCurlRg,
+            ExerciseType.FrenchPress => stats.FrenchPress,
+            ExerciseType.DumbbellFrenchPress => stats.FrenchPress * 0.45,
 
             // Pull Up
-            ExerciseType.PullUp => Stats.PullUp,
-            ExerciseType.ChinUp => Stats.PullUp,
+            ExerciseType.PullUp => stats.PullUp,
+            ExerciseType.ChinUp => stats.PullUp,
 
             // None
             _ => null

@@ -4,7 +4,9 @@ namespace Kudiyarov.TrainingPrograms.Entities.Exercises;
 
 public sealed class Deadlift : BaseSingleExercise
 {
-    public Deadlift(ExerciseType type) : base(Stats.Deadlift, type)
+    public Deadlift(
+        Stats stats,
+        ExerciseType type) : base(stats.Deadlift, type)
     {
     }
 
