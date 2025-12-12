@@ -34,7 +34,7 @@ public class HomeController : Controller
         {
             ProgramType = apiRequest.ProgramType,
             Day = apiRequest.Day,
-            Stats = new Stats()
+            Stats = new Stats(82.5)
         };
         
         var result = _logic.Get(request);
