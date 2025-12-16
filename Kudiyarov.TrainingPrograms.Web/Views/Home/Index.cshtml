@@ -4,7 +4,9 @@
     ViewBag.Title = "title";
 }
 
-@foreach (var program in Model)
-{
-    <p>@Html.ActionLink(program.Name, "Program", new { type = (int)program.Type })</p>
-}
+<ul>
+    @foreach (var program in Model)
+    {
+        <li>@Html.ActionLink(program.Name, "Program", new { type = (int)program.Type })</li>
+    }    
+</ul>

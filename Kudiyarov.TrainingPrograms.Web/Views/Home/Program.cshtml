@@ -1,5 +1,3 @@
-@using Kudiyarov.TrainingPrograms.Entities
-@using Kudiyarov.TrainingPrograms.Entities.Requests
 @using Kudiyarov.TrainingPrograms.Web.Models
 @model Kudiyarov.TrainingPrograms.Programs.TrainingProgram
 
@@ -8,13 +6,16 @@
 }
 
 <h3>@Model.Name</h3>
-@for (var day = 1; day <= Model.Days; day++)
-{
-    var request = new ApiSessionRequest
-    {
-        ProgramType = Model.Type,
-        Day = day
-    };
 
-    <p>@Html.ActionLink($"Session {day}", "Session", request)</p>
-}
+<ol>
+    @for (var day = 1; day <= Model.Days; day++)
+    {
+        var request = new ApiSessionRequest
+        {
+            ProgramType = Model.Type,
+            Day = day
+        };
+
+        <li>@Html.ActionLink($"Session {day}", "Session", request)</li>
+    }    
+</ol>

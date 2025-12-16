@@ -11,67 +11,71 @@
 <div>
     <div>
         <h3>Session @Model.Day</h3>
-        @foreach (var round in Model.Rounds)
-        {
-            for (var r = 0; r < round.Rounds; r++)
+        <ol>
+            @foreach (var round in Model.Rounds)
             {
-                foreach (var exercise in round.Exercises)
+                for (var r = 0; r < round.Rounds; r++)
                 {
-                    <div>
-                        <p>@exercise.Name</p>
+                    foreach (var exercise in round.Exercises)
+                    {
+                        <li>
+                            <p>@exercise.Name</p>
 
-                        @foreach (var repeat in exercise.Repeats)
-                        {
-                            var repeats = repeat switch
-                            {
-                                SingleRepeat singleRepeat => singleRepeat.Repeats.ToString(),
-                                MultiRepeat multiRepeat => string.Join("+", multiRepeat.Repeats),
-                                StaticRepeat staticRepeat => $"{staticRepeat.Duration.TotalSeconds.ToString(CultureInfo.CurrentCulture)} sec",
-                                _ => throw new ArgumentOutOfRangeException()
-                            };
-
-                            const double roundFactor = 2.5;
-                            var weight = repeat.Weight;
-                            var asymmetryWeight = default(double?);
-
-                            if (weight != null)
-                            {
-                                var isAsymmetry = exercise.Name.Contains("Asymmetry", StringComparison.OrdinalIgnoreCase);
-
-                                if (isAsymmetry)
+                            <ol>
+                                @foreach (var repeat in exercise.Repeats)
                                 {
-                                    asymmetryWeight = weight * 0.85;
-                                    asymmetryWeight = asymmetryWeight.Value.RoundTo(roundFactor);
+                                    var repeats = repeat switch
+                                    {
+                                        SingleRepeat singleRepeat => singleRepeat.Repeats.ToString(),
+                                        MultiRepeat multiRepeat => string.Join("+", multiRepeat.Repeats),
+                                        StaticRepeat staticRepeat => $"{staticRepeat.Duration.TotalSeconds.ToString(CultureInfo.CurrentCulture)} sec",
+                                        _ => throw new ArgumentOutOfRangeException()
+                                    };
+
+                                    const double roundFactor = 2.5;
+                                    var weight = repeat.Weight;
+                                    var asymmetryWeight = default(double?);
+
+                                    if (weight != null)
+                                    {
+                                        var isAsymmetry = exercise.Name.Contains("Asymmetry", StringComparison.OrdinalIgnoreCase);
+
+                                        if (isAsymmetry)
+                                        {
+                                            asymmetryWeight = weight * 0.85;
+                                            asymmetryWeight = asymmetryWeight.Value.RoundTo(roundFactor);
+                                        }
+
+                                        weight = weight.Value.RoundTo(roundFactor);
+                                    }
+
+                                    string repeatDescription;
+
+                                    if (weight != null && asymmetryWeight != null)
+                                    {
+                                        repeatDescription = $"{weight} ({asymmetryWeight}) × {repeats}";
+                                    }
+                                    else if (weight != null)
+                                    {
+                                        repeatDescription = $"{weight} × {repeats}";
+                                    }
+                                    else
+                                    {
+                                        repeatDescription = repeats;
+                                    }
+
+                                    for (var s = 0; s < repeat.Sets; s++)
+                                    {
+                                        var formattedTimer = timer.ToString(@"hh\:mm\:ss");
+                                        <li>@formattedTimer: @repeatDescription</li>
+                                        timer += TimeSpan.FromMinutes(2, 30);
+                                    }
                                 }
-
-                                weight = weight.Value.RoundTo(roundFactor);
-                            }
-
-                            string repeatDescription;
-
-                            if (weight != null && asymmetryWeight != null)
-                            {
-                                repeatDescription = $"{weight} ({asymmetryWeight}) × {repeats}";
-                            }
-                            else if (weight != null)
-                            {
-                                repeatDescription = $"{weight} × {repeats}";
-                            }
-                            else
-                            {
-                                repeatDescription = repeats;
-                            }
-
-                            for (var s = 0; s < repeat.Sets; s++)
-                            {
-                                var formattedTimer = timer.ToString(@"hh\:mm\:ss");
-                                <p>@formattedTimer: @repeatDescription</p>
-                                timer += TimeSpan.FromMinutes(2, 30);
-                            }
-                        }
-                    </div>
+                            </ol>
+                        </li>
+                    }
                 }
             }
-        }
+        </ol>
     </div>
 </div>
