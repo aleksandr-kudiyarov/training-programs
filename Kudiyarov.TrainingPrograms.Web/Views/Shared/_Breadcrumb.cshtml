@@ -1,0 +1,26 @@
+@model Kudiyarov.TrainingPrograms.Web.Models.BreadcrumbViewModel
+
+@if (Model.Items.Any())
+{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            @foreach (var item in Model.Items)
+            {
+                <li class="breadcrumb-item@(item.IsActive ? " active" : "")" @(item.IsActive ? Html.Raw("aria-current=\"page\"") : null)>
+                    @if (item.IsActive)
+                    {
+                        @item.Text
+                    }
+                    else if (!string.IsNullOrEmpty(item.Action) && !string.IsNullOrEmpty(item.Controller))
+                    {
+                        @Html.ActionLink(item.Text, item.Action, item.Controller, item.RouteValues, null)
+                    }
+                    else
+                    {
+                        @item.Text
+                    }
+                </li>
+            }
+        </ol>
+    </nav>
+}

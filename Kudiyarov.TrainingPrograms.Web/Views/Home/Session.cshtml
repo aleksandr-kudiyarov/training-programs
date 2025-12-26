@@ -1,25 +1,41 @@
 @using System.Globalization
 @using Kudiyarov.Packages.DoubleExtensions
 @using Kudiyarov.TrainingPrograms.Entities.Repeats
+@using Kudiyarov.TrainingPrograms.Web.Models
 @model Kudiyarov.TrainingPrograms.Web.Models.SessionViewModel
 
 @{
     ViewData["Title"] = $"Session {Model.Session.Day}";
     Layout = "_Layout";
     var timer = TimeSpan.Zero;
+
+    var breadcrumb = new BreadcrumbViewModel
+    {
+        Items =
+        [
+            new BreadcrumbItem
+            {
+                Text = "Programs",
+                Controller = "Home",
+                Action = "Index"
+            },
+            new BreadcrumbItem
+            {
+                Text = Model.ProgramName,
+                Controller = "Home",
+                Action = "Program",
+                RouteValues = new { type = (int)Model.ProgramType }
+            },
+            new BreadcrumbItem
+            {
+                Text = $"Session {Model.Session.Day}",
+                IsActive = true
+            }
+        ]
+    };
 }
 
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            @Html.ActionLink("All Programs", "Index", "Home")
-        </li>
-        <li class="breadcrumb-item">
-            @Html.ActionLink(Model.ProgramName, "Program", "Home", new { type = (int)Model.ProgramType }, null)
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Session @Model.Session.Day</li>
-    </ol>
-</nav>
+@await Html.PartialAsync("_Breadcrumb", breadcrumb)
 
 <h1 class="mb-4">Session @Model.Session.Day</h1>
 

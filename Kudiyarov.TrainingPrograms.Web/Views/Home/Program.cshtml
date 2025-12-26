@@ -4,16 +4,28 @@
 @{
     ViewBag.Title = Model.Name;
     Layout = "_Layout";
+
+    var breadcrumb = new BreadcrumbViewModel
+    {
+        Items =
+        [
+            new BreadcrumbItem
+            {
+                Text = "Programs",
+                Controller = "Home",
+                Action = "Index"
+            },
+
+            new BreadcrumbItem
+            {
+                Text = Model.Name,
+                IsActive = true
+            }
+        ]
+    };
 }
 
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            @Html.ActionLink("All Programs", "Index", "Home")
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
-    </ol>
-</nav>
+@await Html.PartialAsync("_Breadcrumb", breadcrumb)
 
 <h1 class="mb-4">@Model.Name</h1>
 
