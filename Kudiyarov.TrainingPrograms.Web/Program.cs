@@ -14,6 +14,8 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+app.UseHttpsRedirection();
+
 app.UseRouting();
 app.MapDefaultControllerRoute();
 app.MapHealthChecks("/healthz");
