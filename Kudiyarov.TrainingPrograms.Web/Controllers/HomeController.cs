@@ -36,8 +36,17 @@ public class HomeController : Controller
             Day = apiRequest.Day,
             Stats = new Stats(82.5)
         };
-        
-        var result = _logic.Get(request);
-        return View(result);
+
+        var session = _logic.Get(request);
+        var program = _logic.Get(request.ProgramType);
+
+        var viewModel = new SessionViewModel
+        {
+            Session = session,
+            ProgramName = program.Name,
+            ProgramType = apiRequest.ProgramType
+        };
+
+        return View(viewModel);
     }
 }

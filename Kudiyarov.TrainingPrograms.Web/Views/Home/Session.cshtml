@@ -1,18 +1,30 @@
 @using System.Globalization
 @using Kudiyarov.Packages.DoubleExtensions
 @using Kudiyarov.TrainingPrograms.Entities.Repeats
-@model Kudiyarov.TrainingPrograms.Entities.Session
+@model Kudiyarov.TrainingPrograms.Web.Models.SessionViewModel
 
 @{
-    ViewData["Title"] = $"Session {Model.Day}";
+    ViewData["Title"] = $"Session {Model.Session.Day}";
     Layout = "_Layout";
     var timer = TimeSpan.Zero;
 }
 
-<h1 class="mb-4">Session @Model.Day</h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            @Html.ActionLink("All Programs", "Index", "Home")
+        </li>
+        <li class="breadcrumb-item">
+            @Html.ActionLink(Model.ProgramName, "Program", "Home", new { type = (int)Model.ProgramType }, null)
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Session @Model.Session.Day</li>
+    </ol>
+</nav>
+
+<h1 class="mb-4">Session @Model.Session.Day</h1>
 
 <ol class="list-group list-group-numbered">
-    @foreach (var round in Model.Rounds)
+    @foreach (var round in Model.Session.Rounds)
     {
         for (var r = 0; r < round.Rounds; r++)
         {
