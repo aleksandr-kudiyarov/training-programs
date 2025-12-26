@@ -9,7 +9,7 @@
     var timer = TimeSpan.Zero;
 }
 
-<h2 class="mb-4">Session @Model.Day</h2>
+<h1 class="mb-4">Session @Model.Day</h1>
 
 <ol class="list-group list-group-numbered">
     @foreach (var round in Model.Rounds)
@@ -19,7 +19,7 @@
             foreach (var exercise in round.Exercises)
             {
                 <li class="list-group-item">
-                    <h5 class="mb-3">@exercise.Name</h5>
+                    <h2 class="h5 mb-3">@exercise.Name</h2>
 
                     <ol class="list-group list-group-numbered">
                         @foreach (var repeat in exercise.Repeats)

@@ -11,7 +11,7 @@
     @foreach (var program in Model)
     {
         <li class="list-group-item">
-            @Html.ActionLink(program.Name, "Program", new { type = (int)program.Type }, new { @class = "text-decoration-none" })
+            @Html.ActionLink(program.Name, "Program", new { type = (int)program.Type }, new { @class = "text-decoration-none", aria_label = $"View {program.Name} training program details" })
         </li>
     }
 </ul>
