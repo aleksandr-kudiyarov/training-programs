@@ -2,12 +2,13 @@
 @model Kudiyarov.TrainingPrograms.Programs.TrainingProgram
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = Model.Name;
+    Layout = "_Layout";
 }
 
-<h3>@Model.Name</h3>
+<h2 class="mb-4">@Model.Name</h2>
 
-<ol>
+<ol class="list-group list-group-numbered">
     @for (var day = 1; day <= Model.Days; day++)
     {
         var request = new ApiSessionRequest
@@ -16,6 +17,8 @@
             Day = day
         };
 
-        <li>@Html.ActionLink($"Session {day}", "Session", request)</li>
-    }    
+        <li class="list-group-item">
+            @Html.ActionLink($"Session {day}", "Session", request, new { @class = "text-decoration-none" })
+        </li>
+    }
 </ol>

@@ -1,12 +1,17 @@
 @model IEnumerable<Kudiyarov.TrainingPrograms.Programs.TrainingProgram>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Training Programs";
+    Layout = "_Layout";
 }
 
-<ul>
+<h1 class="mb-4">Training Programs</h1>
+
+<ul class="list-group">
     @foreach (var program in Model)
     {
-        <li>@Html.ActionLink(program.Name, "Program", new { type = (int)program.Type })</li>
-    }    
+        <li class="list-group-item">
+            @Html.ActionLink(program.Name, "Program", new { type = (int)program.Type }, new { @class = "text-decoration-none" })
+        </li>
+    }
 </ul>
