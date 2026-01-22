@@ -1,11 +1,26 @@
+@using Kudiyarov.TrainingPrograms.Web.Models
 @model IEnumerable<Kudiyarov.TrainingPrograms.Programs.TrainingProgram>
 
 @{
     ViewBag.Title = "Training Programs";
     Layout = "_Layout";
+    
+    var breadcrumb = new BreadcrumbViewModel
+    {
+        Items =
+        [
+            new BreadcrumbItem
+            {
+                Text = "Programs",
+                Controller = "Home",
+                Action = "Index",
+                IsActive = true
+            }
+        ]
+    };
 }
 
-<h1 class="mb-4">Training Programs</h1>
+@await Html.PartialAsync("_Breadcrumb", breadcrumb)
 
 <ul class="list-group">
     @foreach (var program in Model)

@@ -37,8 +37,6 @@
 
 @await Html.PartialAsync("_Breadcrumb", breadcrumb)
 
-<h1 class="mb-4">Session @Model.Session.Day</h1>
-
 <ol class="list-group">
     @foreach (var round in Model.Session.Rounds)
     {

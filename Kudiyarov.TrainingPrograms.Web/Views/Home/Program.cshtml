@@ -27,8 +27,6 @@
 
 @await Html.PartialAsync("_Breadcrumb", breadcrumb)
 
-<h1 class="mb-4">@Model.Name</h1>
-
 <ol class="list-group">
     @for (var day = 1; day <= Model.Days; day++)
     {
