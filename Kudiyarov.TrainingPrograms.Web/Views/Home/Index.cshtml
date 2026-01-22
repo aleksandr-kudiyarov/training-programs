@@ -22,11 +22,15 @@
 
 @await Html.PartialAsync("_Breadcrumb", breadcrumb)
 
-<ul class="list-group">
-    @foreach (var program in Model)
-    {
-        <li class="list-group-item">
-            @Html.ActionLink(program.Name, "Program", new { type = (int)program.Type }, new { @class = "text-decoration-none", aria_label = $"View {program.Name} training program details" })
-        </li>
-    }
-</ul>
+<div class="card">
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            @foreach (var program in Model)
+            {
+                <li class="list-group-item">
+                    @Html.ActionLink(program.Name, "Program", new { type = (int)program.Type }, new { @class = "text-decoration-none", aria_label = $"View {program.Name} training program details" })
+                </li>
+            }
+        </ul>
+    </div>
+</div>
