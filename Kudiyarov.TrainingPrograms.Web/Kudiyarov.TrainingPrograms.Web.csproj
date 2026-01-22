@@ -13,9 +13,5 @@
       <ProjectReference Include="..\Kudiyarov.TrainingPrograms.Dal.Interfaces\Kudiyarov.TrainingPrograms.Dal.Interfaces.csproj" />
       <ProjectReference Include="..\Kudiyarov.TrainingPrograms.Dal.Memory\Kudiyarov.TrainingPrograms.Dal.Memory.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
-    </ItemGroup>
-
+    
 </Project>
