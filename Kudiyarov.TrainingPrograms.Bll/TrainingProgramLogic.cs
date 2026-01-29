@@ -2,7 +2,6 @@ using Kudiyarov.Packages.DoubleExtensions;
 using Kudiyarov.TrainingPrograms.Bll.Interfaces;
 using Kudiyarov.TrainingPrograms.Dal.Interfaces;
 using Kudiyarov.TrainingPrograms.Entities;
-using Kudiyarov.TrainingPrograms.Entities.Enums;
 using Kudiyarov.TrainingPrograms.Entities.Exercises;
 using Kudiyarov.TrainingPrograms.Entities.Repeats;
 using Kudiyarov.TrainingPrograms.Entities.Requests;
@@ -71,7 +70,6 @@ public class TrainingProgramLogic : ITrainingProgramLogic
             foreach (var repeat in exercise.Repeats)
             {
                 CalculateWeight(exercise, repeat);
-                // RoundWeight(exercise, repeat);
             }
         }
     }
@@ -164,29 +162,5 @@ public class TrainingProgramLogic : ITrainingProgramLogic
         {
             repeat.Weight = exercise.Weight * repeat.Percent;
         }
-    }
-
-    private static void RoundWeight(BaseExercise exercise, Repeat repeat)
-    {
-        if (repeat.Weight == null)
-        {
-            return;
-        }
-
-        var equipment = exercise switch
-        {
-            Accessory accessory => accessory.EquipmentType,
-            _ => EquipmentType.Barbell
-        };
-
-        var factor = equipment switch
-        {
-            EquipmentType.Barbell => Constants.BarbellFactor,
-            EquipmentType.Dumbbell => Constants.DumbbellFactor,
-            _ => throw new ArgumentOutOfRangeException(nameof(equipment), "Type is not defined")
-        };
-
-        var roundedWeight = repeat.Weight.Value.RoundTo(factor);
-        repeat.Weight = roundedWeight;
     }
 }
