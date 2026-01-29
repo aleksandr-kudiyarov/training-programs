@@ -1,5 +1,4 @@
 using Kudiyarov.TrainingPrograms.Entities;
-using Kudiyarov.TrainingPrograms.Entities.Enums;
 using Kudiyarov.TrainingPrograms.Entities.Repeats;
 
 namespace Kudiyarov.TrainingPrograms.Programs;
@@ -21,7 +20,6 @@ public abstract class TrainingProgram
 
     private IReadOnlyList<Func<Stats, Session>> Sessions => _sessions.Value;
 
-    public abstract ProgramType Type { get; }
     public abstract string Name { get; }
     public int Days => Sessions.Count;
     protected abstract IReadOnlyList<Func<Stats, Session>> GetSessions();

@@ -1,6 +1,5 @@
 using Kudiyarov.TrainingPrograms.Bll.Interfaces;
 using Kudiyarov.TrainingPrograms.Entities;
-using Kudiyarov.TrainingPrograms.Entities.Enums;
 using Kudiyarov.TrainingPrograms.Entities.Requests;
 using Kudiyarov.TrainingPrograms.Web.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +21,9 @@ public class HomeController : Controller
         return View(result);
     }
 
-    public IActionResult Program(ProgramType type)
+    public IActionResult Program(ProgramRequest request)
     {
-        var result = _logic.Get(type);
+        var result = _logic.GetProgram(request);
         return View(result);
     }
 
@@ -32,19 +31,18 @@ public class HomeController : Controller
     {
         var request = new SessionRequest
         {
-            ProgramType = apiRequest.ProgramType,
+            ProgramName = apiRequest.ProgramName,
             Day = apiRequest.Day,
             Stats = new Stats(82.5)
         };
 
-        var session = _logic.Get(request);
-        var program = _logic.Get(request.ProgramType);
+        var session = _logic.GetSession(request);
+        var program = _logic.GetProgram(request);
 
         var viewModel = new SessionViewModel
         {
             Session = session,
-            ProgramName = program.Name,
-            ProgramType = apiRequest.ProgramType
+            ProgramName = program.Name
         };
 
         return View(viewModel);

@@ -10,7 +10,6 @@ namespace Kudiyarov.TrainingPrograms.Programs.Strength;
 
 public sealed class DeadliftProgram : TrainingProgram
 {
-    public override ProgramType Type => ProgramType.Deadlift;
     public override string Name => "Deadlift Program";
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()

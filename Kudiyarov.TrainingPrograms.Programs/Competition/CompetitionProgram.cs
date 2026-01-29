@@ -1,5 +1,4 @@
 using Kudiyarov.TrainingPrograms.Entities;
-using Kudiyarov.TrainingPrograms.Entities.Enums;
 using Kudiyarov.TrainingPrograms.Entities.Exercises;
 using Kudiyarov.TrainingPrograms.Entities.Exercises.CleanAndJerk;
 using Kudiyarov.TrainingPrograms.Entities.Exercises.Snatch;
@@ -10,7 +9,6 @@ namespace Kudiyarov.TrainingPrograms.Programs.Competition;
 
 public sealed partial class CompetitionProgram : TrainingProgram
 {
-    public override ProgramType Type => ProgramType.Competition;
     public override string Name => "Competition Program";
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()

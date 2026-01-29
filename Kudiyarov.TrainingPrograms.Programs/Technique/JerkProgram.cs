@@ -10,7 +10,6 @@ namespace Kudiyarov.TrainingPrograms.Programs.Technique;
 
 public class JerkProgram : TrainingProgram
 {
-    public override ProgramType Type => ProgramType.Jerk;
     public override string Name => "Jerk Program";
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()

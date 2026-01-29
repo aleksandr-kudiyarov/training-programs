@@ -10,7 +10,6 @@ namespace Kudiyarov.TrainingPrograms.Programs.Strength;
 
 public sealed class LegsProgram : TrainingProgram
 {
-    public override ProgramType Type => ProgramType.Legs;
     public override string Name => "Legs Program";
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()

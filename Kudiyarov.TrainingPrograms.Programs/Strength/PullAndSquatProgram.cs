@@ -10,7 +10,6 @@ namespace Kudiyarov.TrainingPrograms.Programs.Strength;
 
 public sealed class PullAndSquatProgram : TrainingProgram
 {
-    public override ProgramType Type => ProgramType.PullAndSquat;
     public override string Name => "Pull and Squat Program";
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()

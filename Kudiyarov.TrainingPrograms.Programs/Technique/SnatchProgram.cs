@@ -10,7 +10,6 @@ namespace Kudiyarov.TrainingPrograms.Programs.Technique;
 
 public sealed class SnatchProgram : BackTechniqueProgram
 {
-    public override ProgramType Type => ProgramType.Snatch;
     public override string Name => "Snatch Program";
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()

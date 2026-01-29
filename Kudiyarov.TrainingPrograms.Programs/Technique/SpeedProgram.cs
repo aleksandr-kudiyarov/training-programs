@@ -10,7 +10,6 @@ namespace Kudiyarov.TrainingPrograms.Programs.Technique;
 
 public class SpeedProgram : TrainingProgram
 {
-    public override ProgramType Type => ProgramType.Speed;
     public override string Name => "Speed Cycle";
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()

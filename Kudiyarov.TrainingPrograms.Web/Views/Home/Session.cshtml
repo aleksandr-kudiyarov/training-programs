@@ -24,7 +24,7 @@
                 Text = Model.ProgramName,
                 Controller = "Home",
                 Action = "Program",
-                RouteValues = new { type = (int)Model.ProgramType }
+                RouteValues = new { programName = Model.ProgramName }
             },
             new BreadcrumbItem
             {

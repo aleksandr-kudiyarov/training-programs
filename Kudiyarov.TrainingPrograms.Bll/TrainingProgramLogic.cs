@@ -32,13 +32,13 @@ public class TrainingProgramLogic : ITrainingProgramLogic
         return result;
     }
 
-    public TrainingProgram Get(ProgramType type)
+    public TrainingProgram GetProgram(ProgramRequest request)
     {
-        var result = _repository.Get(type);
+        var result = _repository.GetProgram(request);
         return result;
     }
 
-    public Session Get(SessionRequest request)
+    public Session GetSession(SessionRequest request)
     {
         var result = _memoryCache.GetOrCreate(request, entry =>
         {
@@ -51,7 +51,7 @@ public class TrainingProgramLogic : ITrainingProgramLogic
 
     private Session GetFromRepository(SessionRequest request)
     {
-        var session = _repository.Get(request);
+        var session = _repository.GetSession(request);
         ProcessWeights(session);
         return session;
     }

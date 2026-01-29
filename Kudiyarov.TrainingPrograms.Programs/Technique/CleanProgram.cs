@@ -10,7 +10,6 @@ namespace Kudiyarov.TrainingPrograms.Programs.Technique;
 
 public class CleanProgram : BackTechniqueProgram
 {
-    public override ProgramType Type => ProgramType.Clean;
     public override string Name => "Clean Program";
 
     protected override IReadOnlyList<Func<Stats, Session>> GetSessions()

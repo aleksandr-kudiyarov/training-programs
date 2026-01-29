@@ -1,35 +1,18 @@
+using System.Collections.Frozen;
 using Kudiyarov.TrainingPrograms.Dal.Interfaces;
 using Kudiyarov.TrainingPrograms.Entities;
-using Kudiyarov.TrainingPrograms.Entities.Enums;
 using Kudiyarov.TrainingPrograms.Entities.Requests;
 using Kudiyarov.TrainingPrograms.Programs;
-using Kudiyarov.TrainingPrograms.Programs.Competition;
-using Kudiyarov.TrainingPrograms.Programs.Strength;
-using Kudiyarov.TrainingPrograms.Programs.Technique;
 
 namespace Kudiyarov.TrainingPrograms.Dal.Memory;
 
 public class ProgramRepository : IProgramRepository
 {
-    private readonly IReadOnlyDictionary<ProgramType, TrainingProgram> _repository;
+    private readonly FrozenDictionary<string, TrainingProgram> _repository;
 
-    public ProgramRepository()
+    public ProgramRepository(IEnumerable<TrainingProgram> programs)
     {
-        var programs = new TrainingProgram[]
-        {
-            new CompetitionProgram(),
-            new DeadliftProgram(),
-            new LegsProgram(),
-            new MuscleGainProgram(),
-            new PullAndSquatProgram(),
-            new SnatchProgram(),
-            new CleanProgram(),
-            new JerkProgram(),
-            new SpeedProgram(),
-            new BodybuildingProgram()
-        };
-
-        _repository = programs.ToDictionary(program => program.Type);
+        _repository = programs.ToFrozenDictionary(program => program.Name);
     }
 
     public IEnumerable<TrainingProgram> Get()
@@ -38,15 +21,15 @@ public class ProgramRepository : IProgramRepository
         return result;
     }
 
-    public TrainingProgram Get(ProgramType type)
+    public TrainingProgram GetProgram(ProgramRequest request)
     {
-        var result = _repository[type];
+        var result = _repository[request.ProgramName];
         return result;
     }
 
-    public Session Get(SessionRequest request)
+    public Session GetSession(SessionRequest request)
     {
-        var program = _repository[request.ProgramType];
+        var program = _repository[request.ProgramName];
         var session = program.Get(request.Day, request.Stats);
         return session;
     }
