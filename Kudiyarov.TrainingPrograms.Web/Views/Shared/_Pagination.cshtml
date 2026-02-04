@@ -12,7 +12,7 @@
 }
 
 <nav aria-label="Page navigation example">
-    <ul class="pagination">
+    <ul class="pagination justify-content-center">
         
         <li class="page-item @(!hasPrevious ? "disabled" : null)">
             <a class="page-link" href="@Url.Action("Session", "Home", Model.RouteFactory(Model.PaginationInfo.CurrentPage - 1))">
