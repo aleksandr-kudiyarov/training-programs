@@ -15,7 +15,7 @@
     <ul class="pagination justify-content-center">
         
         <li class="page-item @(!hasPrevious ? "disabled" : null)">
-            <a class="page-link" href="@Url.Action("Session", "Home", Model.RouteFactory(Model.PaginationInfo.CurrentPage - 1))">
+            <a class="page-link" href="@Url.Action(Model.PaginationRoute.Action, Model.PaginationRoute.Controller, Model.PaginationRoute.ValuesFactory(Model.PaginationInfo.CurrentPage - 1))">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
@@ -24,15 +24,15 @@
         {
             var isActive = currentPage == paginationInfo.CurrentPage;
 
-            var request = Model.RouteFactory(currentPage);
+            var request = Model.PaginationRoute.ValuesFactory(currentPage);
             
             <li class="page-item @(isActive ? "active" : null)">
-                <a class="page-link" href="@Url.Action("Session", "Home", request)">@currentPage</a>
+                <a class="page-link" href="@Url.Action(Model.PaginationRoute.Action, Model.PaginationRoute.Controller, request)">@currentPage</a>
             </li>
         }
 
         <li class="page-item  @(!hasNext ? "disabled" : null)">
-            <a class="page-link" href="@Url.Action("Session", "Home", Model.RouteFactory(Model.PaginationInfo.CurrentPage + 1))">
+            <a class="page-link" href="@Url.Action(Model.PaginationRoute.Action, Model.PaginationRoute.Controller, Model.PaginationRoute.ValuesFactory(Model.PaginationInfo.CurrentPage + 1))">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>

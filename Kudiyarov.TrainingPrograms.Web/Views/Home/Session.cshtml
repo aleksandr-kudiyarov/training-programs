@@ -21,10 +21,10 @@
             },
             new BreadcrumbItem
             {
-                Text = Model.ProgramName,
+                Text = Model.Program.Name,
                 Controller = "Home",
                 Action = "Program",
-                RouteValues = new { type = (int)Model.ProgramType }
+                RouteValues = new { type = (int)Model.Program.Type }
             },
             new BreadcrumbItem
             {

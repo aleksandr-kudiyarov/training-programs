@@ -2,6 +2,7 @@ using Kudiyarov.TrainingPrograms.Bll.Interfaces;
 using Kudiyarov.TrainingPrograms.Entities;
 using Kudiyarov.TrainingPrograms.Entities.Enums;
 using Kudiyarov.TrainingPrograms.Entities.Requests;
+using Kudiyarov.TrainingPrograms.Programs;
 using Kudiyarov.TrainingPrograms.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,14 +44,18 @@ public class HomeController : Controller
         var viewModel = new SessionViewModel
         {
             Session = session,
-            ProgramName = program.Name,
-            ProgramType = apiRequest.ProgramType,
+            Program = program,
             PaginationInfo = new PaginationInfo
             {
                 CurrentPage = session.Day,
                 TotalPages = program.Days
             },
-            RouteFactory = day => apiRequest with { Day = day }
+            PaginationRoute = new PaginationRoute
+            {
+                Action = "Session",
+                Controller = "Home",
+                ValuesFactory = day => apiRequest with { Day = day }
+            }
         };
 
         return View(viewModel);
