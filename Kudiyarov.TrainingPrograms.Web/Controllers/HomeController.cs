@@ -44,7 +44,13 @@ public class HomeController : Controller
         {
             Session = session,
             ProgramName = program.Name,
-            ProgramType = apiRequest.ProgramType
+            ProgramType = apiRequest.ProgramType,
+            PaginationInfo = new PaginationInfo
+            {
+                CurrentPage = session.Day,
+                TotalPages = program.Days
+            },
+            RouteFactory = day => apiRequest with { Day = day }
         };
 
         return View(viewModel);

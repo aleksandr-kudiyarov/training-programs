@@ -3,9 +3,11 @@ using Kudiyarov.TrainingPrograms.Entities.Enums;
 
 namespace Kudiyarov.TrainingPrograms.Web.Models;
 
-public class SessionViewModel
+public class SessionViewModel : IHasPagination
 {
-    public Session Session { get; set; } = null!;
-    public string ProgramName { get; set; } = string.Empty;
-    public ProgramType ProgramType { get; set; }
+    public required Session Session { get; init; }
+    public required string ProgramName { get; init; }
+    public required ProgramType ProgramType { get; init; }
+    public required PaginationInfo PaginationInfo { get; init; }
+    public required Func<int, object> RouteFactory { get; init; }
 }

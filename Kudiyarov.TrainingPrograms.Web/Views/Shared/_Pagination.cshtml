@@ -1,0 +1,40 @@
+@using Kudiyarov.TrainingPrograms.Web.Models
+@model IHasPagination
+
+@{
+    const int delta = 2;
+
+    var paginationInfo = Model.PaginationInfo;
+    var hasPrevious = paginationInfo.CurrentPage > 1;
+    var from = Math.Max(paginationInfo.CurrentPage - delta, 1);
+    var to = Math.Min(paginationInfo.CurrentPage + delta, paginationInfo.TotalPages);
+    var hasNext = paginationInfo.CurrentPage < paginationInfo.TotalPages;
+}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        
+        <li class="page-item @(!hasPrevious ? "disabled" : null)">
+            <a class="page-link" href="@Url.Action("Session", "Home", Model.RouteFactory(Model.PaginationInfo.CurrentPage - 1))">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+        @for (var currentPage = from; currentPage <= to; currentPage++)
+        {
+            var isActive = currentPage == paginationInfo.CurrentPage;
+
+            var request = Model.RouteFactory(currentPage);
+            
+            <li class="page-item @(isActive ? "active" : null)">
+                <a class="page-link" href="@Url.Action("Session", "Home", request)">@currentPage</a>
+            </li>
+        }
+
+        <li class="page-item  @(!hasNext ? "disabled" : null)">
+            <a class="page-link" href="@Url.Action("Session", "Home", Model.RouteFactory(Model.PaginationInfo.CurrentPage + 1))">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
