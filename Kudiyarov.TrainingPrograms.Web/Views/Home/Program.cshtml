@@ -40,7 +40,7 @@
                 };
 
                 <li class="list-group-item">
-                    @Html.ActionLink($"Session {day}", "Session", request, new { @class = "text-decoration-none", aria_label = $"View session {day} of {Model.Name} program" })
+                    @Html.ActionLink($"Session {day}", "Session", request, new { @class = "text-decoration-none" })
                 </li>
             }
         </ol>
