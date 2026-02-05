@@ -1,7 +1,6 @@
 using Kudiyarov.TrainingPrograms.Bll.Interfaces;
 using Kudiyarov.TrainingPrograms.Entities;
 using Kudiyarov.TrainingPrograms.Entities.Requests;
-using Kudiyarov.TrainingPrograms.Programs;
 using Kudiyarov.TrainingPrograms.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
