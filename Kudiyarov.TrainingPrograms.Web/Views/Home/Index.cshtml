@@ -26,7 +26,7 @@
 <div class="card">
     <div class="card-body">
         <ul class="list-group list-group-flush">
-            @foreach (var program in Model)
+            @foreach (var program in Model.OrderBy(p => p.Name))
             {
                 <li class="list-group-item">
                     @Html.ActionLink(program.Name, "Program", new ProgramRequest { ProgramName = program.Name }, new { @class = "text-decoration-none" })
