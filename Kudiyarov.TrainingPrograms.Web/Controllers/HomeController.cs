@@ -28,13 +28,13 @@ public class HomeController : Controller
         return View(result);
     }
 
-    public IActionResult Session(ApiSessionRequest apiRequest, double snatch = 82.5)
+    public IActionResult Session(ApiSessionRequest apiRequest)
     {
         var request = new SessionRequest
         {
             ProgramName = apiRequest.ProgramName,
             Day = apiRequest.Day,
-            Stats = new Stats(snatch)
+            Stats = new Stats(apiRequest.Snatch)
         };
 
         var session = _logic.GetSession(request);
