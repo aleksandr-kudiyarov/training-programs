@@ -1,6 +1,7 @@
 using Kudiyarov.TrainingPrograms.Bll.Interfaces;
 using Kudiyarov.TrainingPrograms.Entities;
 using Kudiyarov.TrainingPrograms.Entities.Requests;
+using Kudiyarov.TrainingPrograms.Programs;
 using Kudiyarov.TrainingPrograms.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,13 +28,13 @@ public class HomeController : Controller
         return View(result);
     }
 
-    public IActionResult Session(ApiSessionRequest apiRequest)
+    public IActionResult Session(ApiSessionRequest apiRequest, double snatch = 82.5)
     {
         var request = new SessionRequest
         {
             ProgramName = apiRequest.ProgramName,
             Day = apiRequest.Day,
-            Stats = new Stats(82.5)
+            Stats = new Stats(snatch)
         };
 
         var session = _logic.GetSession(request);
@@ -42,7 +43,18 @@ public class HomeController : Controller
         var viewModel = new SessionViewModel
         {
             Session = session,
-            ProgramName = program.Name
+            Program = program,
+            PaginationInfo = new PaginationInfo
+            {
+                CurrentPage = session.Day,
+                TotalPages = program.Days
+            },
+            PaginationRoute = new PaginationRoute
+            {
+                Action = "Session",
+                Controller = "Home",
+                ValuesFactory = day => apiRequest with { Day = day }
+            }
         };
 
         return View(viewModel);
