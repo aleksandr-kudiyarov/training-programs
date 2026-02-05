@@ -2,17 +2,16 @@ services:
   backend:
     build:
       context: .
-      dockerfile: api.Synology.Dockerfile
+      dockerfile: api.Dockerfile
     restart: unless-stopped
     ports:
-      - "5000:5000"
+      - "34496:34496"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_URLS=http://+:5000
+      - ASPNETCORE_URLS=http://+:34496
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/healthz"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:34496/healthz"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
-      
