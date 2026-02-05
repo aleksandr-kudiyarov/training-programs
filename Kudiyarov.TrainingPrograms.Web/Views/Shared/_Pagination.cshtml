@@ -16,7 +16,7 @@
         
         <li class="page-item @(!hasPrevious ? "disabled" : null)">
             <a class="page-link" href="@Url.Action(Model.PaginationRoute.Action, Model.PaginationRoute.Controller, Model.PaginationRoute.ValuesFactory(Model.PaginationInfo.CurrentPage - 1))">
-                <span aria-hidden="true">&laquo;</span>
+                <span>&laquo;</span>
             </a>
         </li>
 
@@ -33,7 +33,7 @@
 
         <li class="page-item  @(!hasNext ? "disabled" : null)">
             <a class="page-link" href="@Url.Action(Model.PaginationRoute.Action, Model.PaginationRoute.Controller, Model.PaginationRoute.ValuesFactory(Model.PaginationInfo.CurrentPage + 1))">
-                <span aria-hidden="true">&raquo;</span>
+                <span>&raquo;</span>
             </a>
         </li>
     </ul>

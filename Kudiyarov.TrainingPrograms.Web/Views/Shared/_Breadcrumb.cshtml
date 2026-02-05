@@ -6,7 +6,7 @@
         <ol class="breadcrumb">
             @foreach (var item in Model.Items)
             {
-                <li class="breadcrumb-item@(item.IsActive ? " active" : "")" @(item.IsActive ? Html.Raw("aria-current=\"page\"") : null)>
+                <li class="breadcrumb-item @(item.IsActive ? " active" : null)">
                     @if (item.IsActive)
                     {
                         @item.Text
