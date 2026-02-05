@@ -1,3 +1,4 @@
+@using Kudiyarov.TrainingPrograms.Entities.Requests
 @using Kudiyarov.TrainingPrograms.Web.Models
 @model IEnumerable<Kudiyarov.TrainingPrograms.Programs.TrainingProgram>
 
@@ -28,7 +29,7 @@
             @foreach (var program in Model)
             {
                 <li class="list-group-item">
-                    @Html.ActionLink(program.Name, "Program", new { programName = program.Name }, new { @class = "text-decoration-none", aria_label = $"View {program.Name} training program details" })
+                    @Html.ActionLink(program.Name, "Program", new ProgramRequest { ProgramName = program.Name }, new { @class = "text-decoration-none", aria_label = $"View {program.Name} training program details" })
                 </li>
             }
         </ul>
