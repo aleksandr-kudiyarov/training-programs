@@ -2,7 +2,7 @@ services:
   backend:
     build:
       context: .
-      dockerfile: api.Synology.Dockerfile
+      dockerfile: api.Dockerfile
     restart: unless-stopped
     ports:
       - "34496:34496"
