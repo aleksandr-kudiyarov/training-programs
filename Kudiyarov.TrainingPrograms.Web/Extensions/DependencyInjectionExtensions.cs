@@ -15,6 +15,7 @@ public static class DependencyInjectionExtensions
         public void AddApplicationServices()
         {
             services.AddSingleton<TrainingProgramLogic>();
+            services.AddSingleton<PercentageLogic>();
             services.AddSingleton<IProgramRepository, ProgramRepository>();
             services.AddPrograms();
         }

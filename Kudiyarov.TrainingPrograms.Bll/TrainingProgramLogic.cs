@@ -1,4 +1,3 @@
-using Kudiyarov.Packages.DoubleExtensions;
 using Kudiyarov.TrainingPrograms.Dal.Interfaces;
 using Kudiyarov.TrainingPrograms.Entities;
 using Kudiyarov.TrainingPrograms.Entities.Exercises;
@@ -11,14 +10,17 @@ namespace Kudiyarov.TrainingPrograms.Bll;
 
 public class TrainingProgramLogic
 {
+    private readonly PercentageLogic _percentageLogic;
     private readonly IMemoryCache _memoryCache;
     private readonly IProgramRepository _repository;
     private readonly TimeSpan _cacheExpiration;
 
     public TrainingProgramLogic(
+        PercentageLogic percentageLogic,
         IMemoryCache memoryCache,
         IProgramRepository repository)
     {
+        _percentageLogic = percentageLogic;
         _memoryCache = memoryCache;
         _repository = repository;
         _cacheExpiration = TimeSpan.FromMinutes(15);
@@ -54,7 +56,7 @@ public class TrainingProgramLogic
         return session;
     }
 
-    private static void ProcessWeights(Session session)
+    private void ProcessWeights(Session session)
     {
         foreach (var set in session.Rounds)
         foreach (var exercise in set.Exercises)
@@ -106,7 +108,7 @@ public class TrainingProgramLogic
         exercise.Repeats = newRepeats;
     }
 
-    private static void CalculatePercentage(BaseExercise exercise, Repeat repeat)
+    private void CalculatePercentage(BaseExercise exercise, Repeat repeat)
     {
         if (repeat.Weight != null || repeat.Percent != null || exercise.Weight == null)
         {
@@ -120,40 +122,12 @@ public class TrainingProgramLogic
             _ => throw new ArgumentOutOfRangeException(nameof(repeat), repeat, null)
         };
 
-        var percent = GetPercent(repeats, repeat.Intensity);
+        var percent = _percentageLogic.GetPercent(repeats, repeat.Intensity);
 
         repeat.Percent = percent;
     }
 
-    private static double GetPercent(int repeats, Intensity intensity)
-    {
-        var reserveRepeats = GetReserveRepeats(intensity);
-        var percent = GetPercent(repeats + reserveRepeats);
-        return percent;
-    }
-
-    private static double GetReserveRepeats(Intensity intensity)
-    {
-        var repeats = intensity switch
-        {
-            Intensity.None => 0,
-            Intensity.Light => 5,
-            Intensity.Medium => 3.5,
-            Intensity.High => 1.5,
-            _ => throw new ArgumentOutOfRangeException(nameof(intensity))
-        };
-
-        return repeats;
-    }
-
-    private static double GetPercent(double repeats)
-    {
-        var result = repeats.RelativeEquals(1)
-            ? 1
-            : 1 - repeats * 0.025;
-
-        return result;
-    }
+    
 
     private static void CalculateWeight(BaseExercise exercise, Repeat repeat)
     {
