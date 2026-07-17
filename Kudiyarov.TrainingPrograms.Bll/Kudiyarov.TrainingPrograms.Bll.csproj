@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Kudiyarov.TrainingPrograms.Bll.Interfaces\Kudiyarov.TrainingPrograms.Bll.Interfaces.csproj" />
         <ProjectReference Include="..\Kudiyarov.TrainingPrograms.Dal.Interfaces\Kudiyarov.TrainingPrograms.Dal.Interfaces.csproj" />
         <ProjectReference Include="..\Kudiyarov.TrainingPrograms.Entities\Kudiyarov.TrainingPrograms.Entities.csproj" />
     </ItemGroup>

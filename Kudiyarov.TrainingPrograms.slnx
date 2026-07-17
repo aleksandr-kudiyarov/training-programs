@@ -1,7 +1,5 @@
 <Solution>
-  <Folder Name="/BLL/">
-    <Project Path="Kudiyarov.TrainingPrograms.Bll.Interfaces/Kudiyarov.TrainingPrograms.Bll.Interfaces.csproj" />
-  </Folder>
+  <Folder Name="/BLL/" />
   <Folder Name="/BLL/Implementations/">
     <Project Path="Kudiyarov.TrainingPrograms.Bll/Kudiyarov.TrainingPrograms.Bll.csproj" />
   </Folder>

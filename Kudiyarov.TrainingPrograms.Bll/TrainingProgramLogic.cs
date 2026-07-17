@@ -1,5 +1,4 @@
 using Kudiyarov.Packages.DoubleExtensions;
-using Kudiyarov.TrainingPrograms.Bll.Interfaces;
 using Kudiyarov.TrainingPrograms.Dal.Interfaces;
 using Kudiyarov.TrainingPrograms.Entities;
 using Kudiyarov.TrainingPrograms.Entities.Exercises;
@@ -10,7 +9,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace Kudiyarov.TrainingPrograms.Bll;
 
-public class TrainingProgramLogic : ITrainingProgramLogic
+public class TrainingProgramLogic
 {
     private readonly IMemoryCache _memoryCache;
     private readonly IProgramRepository _repository;

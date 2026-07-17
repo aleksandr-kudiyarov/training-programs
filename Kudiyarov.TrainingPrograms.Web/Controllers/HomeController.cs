@@ -1,4 +1,4 @@
-using Kudiyarov.TrainingPrograms.Bll.Interfaces;
+using Kudiyarov.TrainingPrograms.Bll;
 using Kudiyarov.TrainingPrograms.Entities;
 using Kudiyarov.TrainingPrograms.Entities.Requests;
 using Kudiyarov.TrainingPrograms.Web.Models;
@@ -8,9 +8,9 @@ namespace Kudiyarov.TrainingPrograms.Web.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ITrainingProgramLogic _logic;
+    private readonly TrainingProgramLogic _logic;
 
-    public HomeController(ITrainingProgramLogic logic)
+    public HomeController(TrainingProgramLogic logic)
     {
         _logic = logic;
     }

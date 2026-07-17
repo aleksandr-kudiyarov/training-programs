@@ -1,5 +1,4 @@
 ﻿using Kudiyarov.TrainingPrograms.Bll;
-using Kudiyarov.TrainingPrograms.Bll.Interfaces;
 using Kudiyarov.TrainingPrograms.Dal.Interfaces;
 using Kudiyarov.TrainingPrograms.Dal.Memory;
 using Kudiyarov.TrainingPrograms.Programs;
@@ -15,7 +14,7 @@ public static class DependencyInjectionExtensions
     {
         public void AddApplicationServices()
         {
-            services.AddSingleton<ITrainingProgramLogic, TrainingProgramLogic>();
+            services.AddSingleton<TrainingProgramLogic>();
             services.AddSingleton<IProgramRepository, ProgramRepository>();
             services.AddPrograms();
         }
