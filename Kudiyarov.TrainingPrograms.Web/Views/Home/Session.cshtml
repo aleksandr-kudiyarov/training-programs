@@ -1,6 +1,4 @@
-@using System.Globalization
-@using Kudiyarov.Packages.DoubleExtensions
-@using Kudiyarov.TrainingPrograms.Entities.Repeats
+@using Kudiyarov.TrainingPrograms.Web.Formatting
 @using Kudiyarov.TrainingPrograms.Web.Models
 @model Kudiyarov.TrainingPrograms.Web.Models.SessionViewModel
 
@@ -8,6 +6,7 @@
     ViewData["Title"] = $"Session {Model.Session.Day}";
     Layout = "_Layout";
     var timer = TimeSpan.Zero;
+    var sessionMarkdown = SessionMarkdownFormatter.Format(Model.Session);
 
     var breadcrumb = new BreadcrumbViewModel
     {
@@ -37,6 +36,15 @@
 
 @await Html.PartialAsync("_Breadcrumb", breadcrumb)
 
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h2 class="h4 mb-0">Session @Model.Session.Day</h2>
+    <button id="copy-session-markdown" class="btn btn-outline-primary" type="button">
+        Copy Markdown
+    </button>
+</div>
+<textarea id="session-markdown" hidden readonly>@sessionMarkdown</textarea>
+<div id="copy-session-feedback" class="visually-hidden" role="status" aria-live="polite"></div>
+
 @foreach (var round in Model.Session.Rounds)
 {
     for (var r = 0; r < round.Rounds; r++)
@@ -51,46 +59,7 @@
                     <ol class="list-group list-group-flush">
                         @foreach (var repeat in exercise.Repeats)
                         {
-                            var repeats = repeat switch
-                            {
-                                SingleRepeat singleRepeat => singleRepeat.Repeats.ToString(),
-                                MultiRepeat multiRepeat => string.Join("+", multiRepeat.Repeats),
-                                StaticRepeat staticRepeat => $"{staticRepeat.Duration.TotalSeconds.ToString(CultureInfo.CurrentCulture)} sec",
-                                _ => throw new ArgumentOutOfRangeException()
-                            };
-
-                            const double roundFactor = 2.5;
-                            var weight = repeat.Weight;
-                            var asymmetryWeight = default(double?);
-
-                            if (weight != null)
-                            {
-                                var isAsymmetry = exercise.Name.Contains("Asymmetry", StringComparison.OrdinalIgnoreCase);
-
-                                if (isAsymmetry)
-                                {
-                                    asymmetryWeight = weight * 0.85;
-                                    asymmetryWeight = asymmetryWeight.Value.RoundTo(roundFactor);
-                                }
-
-                                weight = weight.Value.RoundTo(roundFactor);
-                            }
-
-                            string repeatDescription;
-
-                            if (weight != null && asymmetryWeight != null)
-                            {
-                                repeatDescription = $"{weight} ({asymmetryWeight}) × {repeats}";
-                            }
-                            else if (weight != null)
-                            {
-                                repeatDescription = $"{weight} × {repeats}";
-                            }
-                            else
-                            {
-                                repeatDescription = repeats;
-                            }
-
+                            var repeatDescription = SessionMarkdownFormatter.FormatRepeat(exercise, repeat);
                             for (var s = 0; s < repeat.Sets; s++)
                             {
                                 var formattedTimer = timer.ToString(@"hh\:mm\:ss");
@@ -109,3 +78,38 @@
 }
 
 @await Html.PartialAsync("_Pagination", Model)
+
+@section Scripts {
+    <script>
+        (() => {
+            const button = document.getElementById('copy-session-markdown');
+            const markdown = document.getElementById('session-markdown');
+            const feedback = document.getElementById('copy-session-feedback');
+            const originalLabel = button.textContent.trim();
+
+            button.addEventListener('click', async () => {
+                try {
+                    if (!navigator.clipboard?.writeText) {
+                        throw new Error('Clipboard API unavailable');
+                    }
+                    await navigator.clipboard.writeText(markdown.value);
+                    button.textContent = 'Copied!';
+                    feedback.textContent = 'Training session copied as Markdown.';
+                } catch {
+                    button.textContent = originalLabel;
+                    feedback.textContent = 'Could not copy. Select and copy the Markdown below.';
+                    markdown.hidden = false;
+                    markdown.classList.add('form-control', 'mt-2', 'mb-3');
+                    markdown.rows = 10;
+                    markdown.focus();
+                    markdown.select();
+                    markdown.scrollIntoView({ block: 'nearest' });
+                    return;
+                }
+                button.addEventListener('blur', () => {
+                    button.textContent = originalLabel;
+                }, { once: true });
+            });
+        })();
+    </script>
+}
